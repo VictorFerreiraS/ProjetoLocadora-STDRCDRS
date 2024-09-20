@@ -11,6 +11,11 @@ public class VeiculoRepositoryImpl implements VeiculoRepository{
 
     @Override
     public Veiculo buscaPorNome(String nome) {
+        for (Veiculo veiculo : veiculos) {
+            if (veiculo.getModelo().toLowerCase().contains(nome.toLowerCase())) {
+                return veiculo;
+            }
+        }
         return null;
     }
 
