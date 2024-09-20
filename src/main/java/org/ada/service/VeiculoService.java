@@ -11,4 +11,6 @@ public abstract class VeiculoService {
     }
 
     public abstract void inserirVeiculo(Veiculo veiculo);
+
+    public abstract Veiculo editarVeiculo(Integer idVeiculoEditar, Veiculo veiculoNovo);
 }

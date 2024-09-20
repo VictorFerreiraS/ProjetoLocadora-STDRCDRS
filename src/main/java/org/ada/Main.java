@@ -7,14 +7,16 @@ import org.ada.service.VeiculoServiceImpl;
 import org.ada.veiculo.Carro;
 import org.ada.veiculo.Veiculo;
 
+
 public class Main {
     public static void main(String[] args) {
 
+        // INSERIR VEICULO
         VeiculoRepository veiculoRepository = new VeiculoRepositoryImpl();
 
         VeiculoService veiculoService = new VeiculoServiceImpl(veiculoRepository);
 
-        Veiculo carro = new Carro("KCT9999", "POOMaldita", "SOLIDvagabundo", "2024");
+        Veiculo carro = new Carro("KCT9999", "POOMaldita2", "SOLIDdoDiabo", "2024");
 
         veiculoService.inserirVeiculo(carro);
 
@@ -22,6 +24,12 @@ public class Main {
 
         System.out.println(carroEncontrado);
 
+        // EDITAR VEICULO
+        Veiculo carroNovo = new Carro("ABC1234", "MARCA", "MODELO", "2000");
+
+        veiculoService.editarVeiculo(0, carroNovo);
+
+        System.out.println(veiculoRepository.buscarPorId(0));
 
     }
 }

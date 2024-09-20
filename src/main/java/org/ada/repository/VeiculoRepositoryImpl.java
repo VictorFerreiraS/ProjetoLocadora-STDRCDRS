@@ -7,7 +7,7 @@ import java.util.List;
 
 public class VeiculoRepositoryImpl implements VeiculoRepository{
 
-    List<Veiculo> veiculos = new ArrayList<>();
+    private List<Veiculo> veiculos = new ArrayList<>();
 
     @Override
     public Veiculo buscaPorNome(String nome) {
@@ -25,8 +25,16 @@ public class VeiculoRepositoryImpl implements VeiculoRepository{
     }
 
     @Override
-    public Veiculo editar(Veiculo obj) {
-        return null;
+    public Veiculo editar(Integer idVeiculoEditar, Veiculo veiculoNovo) {
+
+        Veiculo veiculoEditado = buscarPorId(idVeiculoEditar);
+        veiculoEditado.setPlaca(veiculoNovo.getPlaca());
+        veiculoEditado.setMarca(veiculoNovo.getMarca());
+        veiculoEditado.setModelo(veiculoNovo.getModelo());
+        veiculoEditado.setAno(veiculoNovo.getAno());
+        System.out.println("Veículo alterado");
+
+        return veiculoEditado;
     }
 
     @Override

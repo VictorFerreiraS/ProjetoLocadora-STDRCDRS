@@ -11,4 +11,10 @@ public class VeiculoServiceImpl extends VeiculoService {
     public void inserirVeiculo(Veiculo veiculo){
         veiculoRepository.inserir(veiculo);
     }
+
+    @Override
+    public Veiculo editarVeiculo(Integer idVeiculoEditar, Veiculo veiculoNovo){
+        return veiculoRepository.editar(idVeiculoEditar, veiculoNovo);
+    }
+
 }
