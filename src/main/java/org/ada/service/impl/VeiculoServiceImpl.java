@@ -1,11 +1,14 @@
-package org.ada.service;
+package org.ada.service.impl;
 
 import org.ada.repository.VeiculoRepository;
+import org.ada.service.VeiculoService;
 import org.ada.veiculo.Veiculo;
 
 public class VeiculoServiceImpl extends VeiculoService {
 
-    public VeiculoServiceImpl(VeiculoRepository veiculoRepository){super(veiculoRepository);}
+    public VeiculoServiceImpl(VeiculoRepository veiculoRepository){
+        super(veiculoRepository);
+    }
 
     @Override
     public void inserirVeiculo(Veiculo veiculo){

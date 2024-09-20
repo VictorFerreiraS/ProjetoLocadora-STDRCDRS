@@ -1,9 +1,9 @@
 package org.ada;
 
 import org.ada.repository.VeiculoRepository;
-import org.ada.repository.VeiculoRepositoryImpl;
+import org.ada.repository.impl.VeiculoRepositoryImpl;
 import org.ada.service.VeiculoService;
-import org.ada.service.VeiculoServiceImpl;
+import org.ada.service.impl.VeiculoServiceImpl;
 import org.ada.veiculo.Carro;
 import org.ada.veiculo.Veiculo;
 
