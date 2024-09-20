@@ -1,10 +1,10 @@
 package org.ada.repository;
 
-public interface CRUD<T> {
+public interface CRUD<T, I> {
 
-    void salvar(T obj);
-    T editar(T obj);
-    T buscar(T obj);
+    void inserir(T obj);
+    T editar(I id, T obj);
+    T buscarPorId(I id);
     void excluir(T obj);
 
 }
