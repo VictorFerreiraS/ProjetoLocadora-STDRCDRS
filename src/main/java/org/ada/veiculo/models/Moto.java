@@ -1,4 +1,4 @@
-package org.ada.veiculo;
+package org.ada.veiculo.models;
 
 public class Moto extends Veiculo{
 
