@@ -1,4 +1,6 @@
 package org.ada.agencia.models;
 
-public class Agencia {
+import org.ada.basemodel.BaseModel;
+
+public class Agencia extends BaseModel {
 }
