@@ -1,45 +1,35 @@
 package org.ada.basemodel;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public abstract class BaseModel {
-    protected String uuid;
+    protected final String uuid;
+    protected LocalDateTime createdAt;
+    protected String createdBy;
 
-    protected String author;
-
-    protected LocalDateTime createdDate;
-
-    protected String nome;
+    public BaseModel() {
+        this.uuid = UUID.randomUUID().toString();
+        this.createdAt = LocalDateTime.now();
+    }
 
     public String getUuid() {
         return uuid;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public String getAuthor() {
-        return author;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

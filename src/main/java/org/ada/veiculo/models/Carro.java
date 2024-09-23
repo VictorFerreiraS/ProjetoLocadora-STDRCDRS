@@ -8,7 +8,9 @@ public class Carro extends Veiculo {
     @Override
     public String toString() {
         return "Carro{" +
-                "placa='" + getPlaca() + '\'' +
+                "uuid='" + getUuid() + '\'' +
+                ", createdDate='" + getCreatedAt() + '\'' +
+                ", placa='" + getPlaca() + '\'' +
                 ", marca='" + getMarca() + '\'' +
                 ", modelo='" + getModelo() + '\'' +
                 ", ano='" + getAno() + '\'' +
