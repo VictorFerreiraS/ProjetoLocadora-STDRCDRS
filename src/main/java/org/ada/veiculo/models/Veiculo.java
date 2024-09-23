@@ -1,6 +1,8 @@
 package org.ada.veiculo.models;
 
-public abstract class Veiculo {
+import org.ada.basemodel.BaseModel;
+
+public abstract class Veiculo extends BaseModel {
 
     private String placa;
     private String marca;
@@ -9,6 +11,7 @@ public abstract class Veiculo {
     private final Double DIARIA;
 
     public Veiculo(String placa, String marca, String modelo, String ano, Double DIARIA) {
+        super();
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
