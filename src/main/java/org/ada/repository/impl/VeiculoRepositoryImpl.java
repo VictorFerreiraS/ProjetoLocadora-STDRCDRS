@@ -1,13 +1,14 @@
-package org.ada.repository;
+package org.ada.repository.impl;
 
+import org.ada.repository.VeiculoRepository;
 import org.ada.veiculo.Veiculo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class VeiculoRepositoryImpl implements VeiculoRepository{
+public class VeiculoRepositoryImpl implements VeiculoRepository {
 
-    List<Veiculo> veiculos = new ArrayList<>();
+    List<Veiculo> veiculosDatabase = new ArrayList<>();
 
     @Override
     public Veiculo buscaPorNome(String nome) {
@@ -21,7 +22,7 @@ public class VeiculoRepositoryImpl implements VeiculoRepository{
 
     @Override
     public void inserir(Veiculo veiculo) {
-        veiculos.add(veiculo);
+        veiculosDatabase.add(veiculo);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class VeiculoRepositoryImpl implements VeiculoRepository{
 
     @Override
     public Veiculo buscarPorId(Integer id) {
-        return veiculos.get(id);
+        return veiculosDatabase.get(id);
     }
 
     @Override
