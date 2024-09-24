@@ -1,5 +1,9 @@
 package org.ada.cliente.models;
 
-public class Cliente {
+import org.ada.basemodel.BaseModel;
 
+public abstract class Cliente extends BaseModel {
+
+    private String nome;
+    private TipoCliente tipoCliente;
 }

@@ -1,19 +1,23 @@
 package org.ada.veiculo.models;
 
-public abstract class Veiculo {
+import org.ada.basemodel.BaseModel;
+
+public class Veiculo extends BaseModel {
 
     private String placa;
     private String marca;
     private String modelo;
     private String ano;
-    private final Double DIARIA;
+    private final TipoVeiculo tipoVeiculo;
 
-    public Veiculo(String placa, String marca, String modelo, String ano, Double DIARIA) {
+    private boolean disponivel = true;
+    public Veiculo(String placa, String marca, String modelo, String ano,TipoVeiculo tipoVeiculo ) {
+        super();
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
-        this.DIARIA = DIARIA;
+        this.tipoVeiculo = tipoVeiculo;
     }
 
     public String getPlaca() {
@@ -32,10 +36,6 @@ public abstract class Veiculo {
         return ano;
     }
 
-    public Double getDIARIA() {
-        return DIARIA;
-    }
-
     public void setPlaca(String placa) {
         this.placa = placa;
     }
@@ -50,5 +50,21 @@ public abstract class Veiculo {
 
     public void setAno(String ano) {
         this.ano = ano;
+    }
+
+    public TipoVeiculo getTipoVeiculo() {
+        return tipoVeiculo;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public double getValorDiaria() {
+        return tipoVeiculo.getValorDiaria();
     }
 }

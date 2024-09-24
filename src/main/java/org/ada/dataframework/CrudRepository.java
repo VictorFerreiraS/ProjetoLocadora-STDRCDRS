@@ -1,7 +1,7 @@
 package org.ada.dataframework;
 
 
-public interface CrudRepository <T, I> {
+public interface CrudRepository<T, I> {
 
     T inserir(T obj);
 

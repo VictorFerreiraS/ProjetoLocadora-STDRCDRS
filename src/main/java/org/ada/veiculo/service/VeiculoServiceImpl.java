@@ -1,4 +1,9 @@
 package org.ada.veiculo.service;
 
-public class VeiculoServiceImpl{
+import org.ada.veiculo.repository.VeiculoRepository;
+
+public class VeiculoServiceImpl extends VeiculoService {
+    public VeiculoServiceImpl(VeiculoRepository veiculoRepository) {
+        super(veiculoRepository);
+    }
 }
