@@ -2,7 +2,7 @@ package org.ada.veiculo.models;
 
 public class Moto extends Veiculo {
     public Moto(String placa, String marca, String modelo, String ano) {
-        super(placa, marca, modelo, ano, 100.00);
+        super(placa, marca, modelo, ano, TipoVeiculo.MOTO);
     }
 
     @Override
@@ -14,7 +14,7 @@ public class Moto extends Veiculo {
                 ", marca='" + getMarca() + '\'' +
                 ", modelo='" + getModelo() + '\'' +
                 ", ano='" + getAno() + '\'' +
-                ", DIARIA=" + getDIARIA() +
+                ", DIARIA=" + getValorDiaria() +
                 '}';
     }
 }

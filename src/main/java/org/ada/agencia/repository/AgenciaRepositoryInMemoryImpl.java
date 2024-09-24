@@ -34,7 +34,7 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
 
     @Override
     public Agencia buscaPorId(String id) {
-        return agenciaDatabase.values().stream().filter(agencia -> agencia.getUuid().equals(id)).findFirst().orElse(null);
+        return agenciaDatabase.get(id);
     }
 
     @Override
