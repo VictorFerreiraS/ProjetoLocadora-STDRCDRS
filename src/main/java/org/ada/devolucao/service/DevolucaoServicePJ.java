@@ -3,7 +3,6 @@ package org.ada.devolucao.service;
 import org.ada.aluguel.Aluguel;
 import org.ada.devolucao.repository.DescontosPJRepository;
 import org.ada.devolucao.repository.DevolucaoRepository;
-import org.ada.util.CalculadoraTaxasDescontosPJ;
 
 public class DevolucaoServicePJ extends DevolucaoServiceImplBase {
 
