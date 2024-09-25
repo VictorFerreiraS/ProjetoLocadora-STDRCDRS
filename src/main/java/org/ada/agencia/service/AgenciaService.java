@@ -1,28 +1,28 @@
 package org.ada.agencia.service;
 
 import org.ada.agencia.models.Agencia;
-import org.ada.agencia.repository.AgenciaRepository;
+import org.ada.agencia.repository.AgenciaRepositoryInMemoryImpl;
 
 public abstract class AgenciaService{
 
-    protected final AgenciaRepository agenciaRepository;
+    protected final AgenciaRepositoryInMemoryImpl agenciaRepositoryInMemory;
 
-    public AgenciaService(AgenciaRepository agenciaRepository) {
-        this.agenciaRepository = agenciaRepository;
+    public AgenciaService(AgenciaRepositoryInMemoryImpl agenciaRepositoryInMemory) {
+        this.agenciaRepositoryInMemory = agenciaRepositoryInMemory;
     }
 
     public Agencia criarAgencia(Agencia agencia) {
-        return agenciaRepository.inserir(agencia);
+        return agenciaRepositoryInMemory.inserir(agencia);
     }
 
     public Agencia deletarAgencia(Agencia agencia) {
-        return agenciaRepository.deletar(agencia);
+        return agenciaRepositoryInMemory.deletar(agencia);
     }
 
     public Agencia deletarAgencia(String id) {
-        return agenciaRepository.deletarPorId(id);
+        return agenciaRepositoryInMemory.deletarPorId(id);
     }
     public Agencia alterarAgencia(Agencia agencia) {
-        return agenciaRepository.alterar(agencia);
+        return agenciaRepositoryInMemory.alterar(agencia);
     }
 }

@@ -2,12 +2,17 @@ package org.ada.agencia.repository;
 
 import org.ada.agencia.models.Agencia;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
 
     private final Map<String, Agencia> agenciaDatabase = new HashMap<>();
+
+    public Collection<Agencia> buscarTodasAgencias() {
+        return agenciaDatabase.values();
+    }
 
     @Override
     public Agencia buscaPorNome(String nome) {

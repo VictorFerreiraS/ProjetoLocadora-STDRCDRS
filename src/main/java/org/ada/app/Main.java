@@ -1,40 +1,28 @@
 package org.ada.app;
 
-import org.ada.veiculo.models.Caminhao;
-import org.ada.veiculo.models.Carro;
-import org.ada.veiculo.models.Moto;
-import org.ada.veiculo.models.Veiculo;
-import org.ada.veiculo.repository.VeiculoRepository;
-import org.ada.veiculo.repository.VeiculoRepositoryInMemoryImpl;
+import org.ada.agencia.models.Agencia;
+import org.ada.agencia.repository.AgenciaRepositoryInMemoryImpl;
+import org.ada.agencia.service.AgenciaServiceImpl;
+import org.ada.agencia.validation.ValidarAgencia;
 
 public class Main {
     public static void main(String[] args) {
-        testesVeiculos();
+//        testesAgencia();
     }
 
-    public static void testesVeiculos() {
-        Carro carro = new Carro("NEZ3547", "Fibravan", "Buggy Vip 1.6 8V Total Flex", "2007");
+    public static void testesAgencia() {
+        Agencia agenciaSJ = new Agencia("Agencia SJDR", "SJDR MG");
+        Agencia agenciaSP = new Agencia("Agencia SP", "SP SP");
 
-        VeiculoRepository veiculoRepository = new VeiculoRepositoryInMemoryImpl();
-        veiculoRepository.inserir(carro);
+        AgenciaRepositoryInMemoryImpl agenciaRepositoryInMemory = new AgenciaRepositoryInMemoryImpl();
+        ValidarAgencia validarAgencia = new ValidarAgencia(agenciaRepositoryInMemory);
+        AgenciaServiceImpl agenciaServiceImpl = new AgenciaServiceImpl(agenciaRepositoryInMemory, validarAgencia);
+        agenciaServiceImpl.criarAgencia(agenciaSJ);
+        agenciaServiceImpl.criarAgencia(agenciaSP);
 
-        Veiculo foundVehicle = veiculoRepository.buscaPorId(carro.getUuid());
-        System.out.println(foundVehicle);
 
-        Moto moto = new Moto("NEZ3547", "Royal Enfield", "Scram 411", "2011");
-        veiculoRepository.inserir(moto);
-
-        foundVehicle = veiculoRepository.buscaPorId(moto.getUuid());
-        System.out.println(foundVehicle);
-
-        moto.setModelo("Meteor 350");
-        veiculoRepository.alterar(moto);
-        System.out.println(veiculoRepository.buscaPorId(moto.getUuid()));
-
-        veiculoRepository.deletarPorId(moto.getUuid());
-
-        Caminhao caminhao = new Caminhao("NEZ3547", "Volvo", "FH 540", "2020");
-        System.out.println(veiculoRepository.deletar(caminhao));
 
     }
+
+
 }

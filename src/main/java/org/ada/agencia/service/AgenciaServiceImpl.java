@@ -1,22 +1,27 @@
 package org.ada.agencia.service;
 
 import org.ada.agencia.models.Agencia;
-import org.ada.agencia.repository.AgenciaRepository;
+import org.ada.agencia.repository.AgenciaRepositoryInMemoryImpl;
+import org.ada.agencia.validation.ValidarAgencia;
 
 public class AgenciaServiceImpl extends AgenciaService {
-    public AgenciaServiceImpl(AgenciaRepository agenciaRepository) {
-        super(agenciaRepository);
+
+    private final ValidarAgencia validarAgencia;
+
+    public AgenciaServiceImpl(AgenciaRepositoryInMemoryImpl agenciaRepositoryInMemory, ValidarAgencia validarAgencia) {
+        super(agenciaRepositoryInMemory);
+        this.validarAgencia = validarAgencia;
     }
 
     @Override
     public Agencia criarAgencia(Agencia agencia) {
-        //logica
+        validarAgencia.checarSeAgenciaExiste(agencia.getNome());
         return super.criarAgencia(agencia);
     }
 
     @Override
     public Agencia deletarAgencia(Agencia agencia) {
-        //logica
+        validarAgencia.checarSeAgenciaExiste(agencia.getNome());
         return super.deletarAgencia(agencia);
     }
 
