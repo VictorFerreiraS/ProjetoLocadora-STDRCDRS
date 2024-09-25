@@ -1,10 +1,9 @@
 package org.ada.agencia.repository;
 
 import org.ada.agencia.models.Agencia;
+import org.ada.veiculo.models.Veiculo;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
 
@@ -20,8 +19,28 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
     }
 
     @Override
+    public List<Agencia> procurarAgencia(String nomeAgencia) {
+        List<Agencia> result = new ArrayList<>();
+        for (Map.Entry<String, Agencia> entry : agenciaDatabase.entrySet()) {
+            if (entry.getKey().toLowerCase().contains(nomeAgencia.toLowerCase())) {
+                result.add(entry.getValue());
+            }
+        }
+
+        return result;
+    };
+
+
+    @Override
+    public String adicionarVeiculo(String nomeAgencia, Veiculo veiculo) {
+        agenciaDatabase.get(nomeAgencia).getListaDeVeiculos().add(veiculo);
+        return "veiculo adicionado com sucesso";
+    }
+
+
+    @Override
     public Agencia inserir(Agencia agencia) {
-        agenciaDatabase.put(agencia.getUuid(),agencia);
+        agenciaDatabase.put(agencia.getNome(),agencia);
         return agencia;
     }
 

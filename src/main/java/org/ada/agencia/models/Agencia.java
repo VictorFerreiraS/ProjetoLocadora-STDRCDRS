@@ -10,12 +10,13 @@ public class Agencia extends BaseModel {
 
     private String nome;
     private String endereco;
-        private Set<Veiculo> listaDeVeiculos = new HashSet<>();
+    private Set<Veiculo> listaDeVeiculos = new HashSet<>();
 
 
-    public Agencia(String nome, String endereco) {
+    public Agencia(String nome, String endereco, Set<Veiculo> listaDeVeiculos) {
         this.nome = nome;
         this.endereco = endereco;
+        this.listaDeVeiculos = listaDeVeiculos;
     }
 
     public String getNome() {
