@@ -23,6 +23,7 @@ public class Devolucao extends BaseModel {
         this.desconto = desconto;
         this.taxaDeslocamento = taxaDeslocamento;
         this.dataDaDevolucao = LocalDateTime.now();
+        this.valorFinal = getValorFinal();
     }
 
     public Aluguel getAluguel() {

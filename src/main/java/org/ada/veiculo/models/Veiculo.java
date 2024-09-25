@@ -11,8 +11,8 @@ public class Veiculo extends BaseModel {
     private String modelo;
     private String ano;
     private final TipoVeiculo tipoVeiculo;
-
     private boolean disponivel = true;
+
     public Veiculo(String placa, String marca, String modelo, String ano,TipoVeiculo tipoVeiculo ) {
         super();
         this.placa = placa;
@@ -81,5 +81,16 @@ public class Veiculo extends BaseModel {
     @Override
     public int hashCode() {
         return Objects.hashCode(placa);
+    }
+
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", ano='" + ano + '\'' +
+                ", tipoVeiculo=" + tipoVeiculo +
+                '}';
     }
 }

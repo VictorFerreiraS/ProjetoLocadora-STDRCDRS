@@ -13,9 +13,6 @@ public class Agencia extends BaseModel {
     private String endereco;
     private Set<Veiculo> listaDeVeiculos = new HashSet<>();
 
-    public Agencia() {
-    }
-
     public Agencia(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
@@ -57,6 +54,13 @@ public class Agencia extends BaseModel {
     public Veiculo cadastrarVeiculo(Veiculo veiculo) {
        listaDeVeiculos.add(veiculo);
        return veiculo;
+    }
 
+    @Override
+    public String toString() {
+        return "Agencia{" +
+                "nome='" + nome + '\'' +
+                ", endereco='" + endereco + '\'' +
+                '}';
     }
 }

@@ -34,4 +34,9 @@ public class VeiculoRepositoryInMemoryImpl implements VeiculoRepository {
     public Veiculo deletarPorId(String id) {
         return veiculos.remove(id);
     }
+
+    @Override
+    public Veiculo buscarVeiculoPorPlaca(String placa) {
+        return veiculos.values().stream().filter(veiculo -> veiculo.getPlaca().equalsIgnoreCase(placa)).findFirst().orElse(null);
+    }
 }

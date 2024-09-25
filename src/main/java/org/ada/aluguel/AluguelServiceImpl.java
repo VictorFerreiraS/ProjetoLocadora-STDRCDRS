@@ -13,13 +13,13 @@ public class AluguelServiceImpl extends AluguelService {
     @Override
     public Aluguel criarAluguel(Aluguel aluguel) {
         if (!isVeiculoDisponivel(aluguel.getVeiculo())) {
-            throw new RuntimeException(); //melhorar
+            throw new RuntimeException("indisponivel"); //melhorar
         }
         if (isAluguelExistente(aluguel.getCliente())) {
-            throw new RuntimeException();  //melhorar
+            throw new RuntimeException("cliente alugando");  //melhorar
         }
         if (!agenciaPossuiVeciulo(aluguel.getAgenciaDeRetirada(),aluguel.getVeiculo())) {
-            throw new RuntimeException(); //melhorar
+            throw new RuntimeException("agencia nao possui veiculo"); //melhorar
         }
         aluguel.getVeiculo().setDisponivel(false);
         return super.criarAluguel(aluguel);

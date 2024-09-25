@@ -5,20 +5,20 @@ import org.ada.cliente.models.Cliente;
 
 public abstract class AluguelService {
 
-    AluguelRepository aluguelRepository;
+    protected final AluguelRepository aluguelRepository;
 
     public AluguelService(AluguelRepository aluguelRepository) {
         this.aluguelRepository = aluguelRepository;
     }
 
-    Aluguel criarAluguel(Aluguel aluguel) {
+    public Aluguel criarAluguel(Aluguel aluguel) {
         return aluguelRepository.inserir(aluguel);
     }
-    Aluguel buscarAluguel(Cliente cliente) {
+    public Aluguel buscarAluguel(Cliente cliente) {
         return aluguelRepository.buscarAluguelPorCliente(cliente);
     }
 
-    Aluguel atualizarAluguel(Aluguel aluguel) {
+    public Aluguel atualizarAluguel(Aluguel aluguel) {
         return aluguelRepository.alterar(aluguel);
     }
 }
