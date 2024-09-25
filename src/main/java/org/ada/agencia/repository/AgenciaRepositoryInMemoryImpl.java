@@ -3,6 +3,7 @@ package org.ada.agencia.repository;
 import org.ada.agencia.models.Agencia;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
@@ -12,6 +13,11 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
     @Override
     public Agencia buscaPorNome(String nome) {
         return agenciaDatabase.values().stream().filter(agencia -> agencia.getNome().equals(nome)).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Agencia> buscaPorParte(String parteNome) {
+        return agenciaDatabase.values().stream().filter(agencia -> agencia.getNome().contains(parteNome)).toList();
     }
 
     @Override

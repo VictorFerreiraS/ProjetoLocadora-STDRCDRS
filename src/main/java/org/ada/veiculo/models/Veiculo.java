@@ -2,6 +2,8 @@ package org.ada.veiculo.models;
 
 import org.ada.basemodel.BaseModel;
 
+import java.util.Objects;
+
 public class Veiculo extends BaseModel {
 
     private String placa;
@@ -66,5 +68,18 @@ public class Veiculo extends BaseModel {
 
     public double getValorDiaria() {
         return tipoVeiculo.getValorDiaria();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Veiculo veiculo = (Veiculo) o;
+        return Objects.equals(placa, veiculo.placa);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(placa);
     }
 }

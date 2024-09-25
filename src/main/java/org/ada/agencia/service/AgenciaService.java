@@ -2,6 +2,7 @@ package org.ada.agencia.service;
 
 import org.ada.agencia.models.Agencia;
 import org.ada.agencia.repository.AgenciaRepository;
+import org.ada.veiculo.models.Veiculo;
 
 public abstract class AgenciaService{
 
@@ -25,4 +26,5 @@ public abstract class AgenciaService{
     public Agencia alterarAgencia(Agencia agencia) {
         return agenciaRepository.alterar(agencia);
     }
+
 }

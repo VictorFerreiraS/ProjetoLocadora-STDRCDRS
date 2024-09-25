@@ -6,20 +6,13 @@ import org.ada.util.ValidadorCliente;
 
 public class ClienteServiceImpl extends ClienteService {
 
-    private final ValidadorCliente validadorCliente;
 
-    public ClienteServiceImpl(ClienteRepository clienteRepository, ValidadorCliente validadorCliente) {
+    public ClienteServiceImpl(ClienteRepository clienteRepository) {
         super(clienteRepository);
-        this.validadorCliente = validadorCliente;
     }
     @Override
     public Cliente criarCliente(Cliente cliente) {
         //logica
-        try {
-            validadorCliente.validarCliente(cliente);
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
-        }
         return super.criarCliente(cliente);
     }
 

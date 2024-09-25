@@ -13,12 +13,6 @@ public abstract class BaseModel {
         this.createdAt = LocalDateTime.now();
     }
 
-    public BaseModel(String nome, String uuid) {
-        this.createdDate = LocalDateTime.now();
-        this.nome = nome;
-        this.uuid = uuid;
-    }
-
     public String getUuid() {
         return uuid;
     }
