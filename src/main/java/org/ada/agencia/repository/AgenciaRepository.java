@@ -10,7 +10,6 @@ import java.util.List;
 public interface AgenciaRepository extends CrudRepository<Agencia, String> {
 
     Collection<Agencia> buscarTodasAgencias();
-    Agencia buscaPorNome(String nome);
     String adicionarVeiculo(String nomeAgencia, Veiculo veiculo);
     List<Agencia> procurarAgencia(String nomeAgencia);
 }
