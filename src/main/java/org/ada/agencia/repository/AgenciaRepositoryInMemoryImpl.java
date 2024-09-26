@@ -14,11 +14,6 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
     }
 
     @Override
-    public Agencia buscaPorNome(String nome) {
-        return agenciaDatabase.values().stream().filter(agencia -> agencia.getNome().equals(nome)).findFirst().orElse(null);
-    }
-
-    @Override
     public List<Agencia> procurarAgencia(String nomeAgencia) {
         List<Agencia> result = new ArrayList<>();
         for (Map.Entry<String, Agencia> entry : agenciaDatabase.entrySet()) {
