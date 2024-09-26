@@ -2,6 +2,7 @@ package org.ada.cliente.service;
 
 import org.ada.cliente.models.Cliente;
 import org.ada.cliente.repository.ClienteRepository;
+import org.ada.cliente.validations.ValidadorDeCliente;
 
 public abstract class ClienteService {
 
@@ -28,6 +29,10 @@ public abstract class ClienteService {
 
     public Cliente buscarCliente(String id) {
         return clienteRepository.buscaPorId(id);
+    }
+
+    public Cliente buscarPorNome(String nome) {
+        return clienteRepository.buscarPorNome(nome);
     }
 }
 

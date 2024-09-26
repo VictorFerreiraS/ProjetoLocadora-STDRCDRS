@@ -61,10 +61,10 @@ public class Testes {
 
 
 
-        Agencia agencia1 = new Agencia("Agencia1","Rua da tristeza");
+        Agencia agencia1 = new Agencia("Agencia1","Rua da tristeza",veiculos);
         agenciaService.criarAgencia(agencia1);
 
-        Cliente cliente1 = new ClientePessoaFisica("adalberto","123");
+        Cliente cliente1 = new ClientePessoaFisica("adalberto","");
         clienteService.criarCliente(cliente1);
 
         Veiculo veiculo1 = new Veiculo("1234ABCD","sla","nsei","2024", TipoVeiculo.CARRO);
