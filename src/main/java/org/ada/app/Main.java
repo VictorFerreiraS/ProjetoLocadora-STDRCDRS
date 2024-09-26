@@ -1,40 +1,45 @@
 package org.ada.app;
 
-import org.ada.veiculo.models.Caminhao;
-import org.ada.veiculo.models.Carro;
-import org.ada.veiculo.models.Moto;
+import org.ada.agencia.models.Agencia;
+import org.ada.agencia.repository.AgenciaRepositoryInMemoryImpl;
+import org.ada.agencia.service.AgenciaServiceImpl;
+import org.ada.agencia.validation.ValidadoresDeAgencia;
+import org.ada.veiculo.models.TipoVeiculo;
 import org.ada.veiculo.models.Veiculo;
-import org.ada.veiculo.repository.VeiculoRepository;
-import org.ada.veiculo.repository.VeiculoRepositoryInMemoryImpl;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        testesVeiculos();
+        testesAgencia();
     }
 
-    public static void testesVeiculos() {
-        Carro carro = new Carro("NEZ3547", "Fibravan", "Buggy Vip 1.6 8V Total Flex", "2007");
+    public static void testesAgencia() {
+        Set<Veiculo> veiculos = new HashSet<>();
+        Veiculo civic = new Veiculo("QNV5J23", "Honda", "civic", "1997", TipoVeiculo.CARRO);
+        Agencia agenciaSJ = new Agencia("Agencia SJDR", "SJDR MG", veiculos);
+        Agencia agenciaSP = new Agencia("Agencia SP", "SP SP", veiculos);
 
-        VeiculoRepository veiculoRepository = new VeiculoRepositoryInMemoryImpl();
-        veiculoRepository.inserir(carro);
+        AgenciaRepositoryInMemoryImpl agenciaRepositoryInMemory = new AgenciaRepositoryInMemoryImpl();
+        ValidadoresDeAgencia validadoresDeAgencia = new ValidadoresDeAgencia(agenciaRepositoryInMemory);
+        AgenciaServiceImpl agenciaServiceImpl = new AgenciaServiceImpl(agenciaRepositoryInMemory, validadoresDeAgencia);
 
-        Veiculo foundVehicle = veiculoRepository.buscaPorId(carro.getUuid());
-        System.out.println(foundVehicle);
+        agenciaServiceImpl.criarAgencia(agenciaSJ);
+        agenciaServiceImpl.adicionarVeiculo(agenciaSJ, civic);
+        agenciaServiceImpl.criarAgencia(agenciaSP);
+        agenciaServiceImpl.procurarAgencia("Agenc").forEach(agencia -> System.out.println(agencia.toString()));
 
-        Moto moto = new Moto("NEZ3547", "Royal Enfield", "Scram 411", "2011");
-        veiculoRepository.inserir(moto);
-
-        foundVehicle = veiculoRepository.buscaPorId(moto.getUuid());
-        System.out.println(foundVehicle);
-
-        moto.setModelo("Meteor 350");
-        veiculoRepository.alterar(moto);
-        System.out.println(veiculoRepository.buscaPorId(moto.getUuid()));
-
-        veiculoRepository.deletarPorId(moto.getUuid());
-
-        Caminhao caminhao = new Caminhao("NEZ3547", "Volvo", "FH 540", "2020");
-        System.out.println(veiculoRepository.deletar(caminhao));
+        // Printing Agencia SJ details and its vehicles
+//        System.out.println(agenciaSJ.toString());
+//        System.out.println("Veiculos in Agencia SJDR:");
+//        agenciaSJ.getListaDeVeiculos().forEach(veiculo -> {
+//            System.out.println("Placa: " + veiculo.getPlaca());
+//            System.out.println("Marca: " + veiculo.getMarca());
+//            System.out.println("Modelo: " + veiculo.getModelo());
+//            System.out.println("Ano: " + veiculo.getAno());
+//            System.out.println("------------");
+//        });
 
     }
 }

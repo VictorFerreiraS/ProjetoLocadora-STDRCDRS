@@ -1,28 +1,36 @@
 package org.ada.agencia.repository;
 
 import org.ada.agencia.models.Agencia;
+import org.ada.veiculo.models.Veiculo;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
 
     private final Map<String, Agencia> agenciaDatabase = new HashMap<>();
 
     @Override
-    public Agencia buscaPorNome(String nome) {
-        return agenciaDatabase.values().stream().filter(agencia -> agencia.getNome().equals(nome)).findFirst().orElse(null);
+    public List<Agencia> procurarAgencia(String nomeAgencia) {
+        return agenciaDatabase.entrySet().stream()
+                .filter(entry -> entry.getKey().toLowerCase().contains(nomeAgencia.toLowerCase()))
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
+    }
+
+    public Collection<Agencia> buscarTodasAgencias() {
+        return agenciaDatabase.values();
     }
 
     @Override
-    public List<Agencia> buscaPorParte(String parteNome) {
-        return agenciaDatabase.values().stream().filter(agencia -> agencia.getNome().contains(parteNome)).toList();
+    public String adicionarVeiculo(String nomeAgencia, Veiculo veiculo) {
+        agenciaDatabase.get(nomeAgencia).getListaDeVeiculos().add(veiculo);
+        return "veiculo adicionado com sucesso";
     }
-
+    
     @Override
     public Agencia inserir(Agencia agencia) {
-        agenciaDatabase.put(agencia.getUuid(),agencia);
+        agenciaDatabase.put(agencia.getNome(),agencia);
         return agencia;
     }
 
