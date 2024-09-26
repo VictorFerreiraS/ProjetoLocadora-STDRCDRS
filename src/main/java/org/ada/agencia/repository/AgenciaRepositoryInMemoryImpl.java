@@ -27,8 +27,7 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
         agenciaDatabase.get(nomeAgencia).getListaDeVeiculos().add(veiculo);
         return "veiculo adicionado com sucesso";
     }
-
-
+    
     @Override
     public Agencia inserir(Agencia agencia) {
         agenciaDatabase.put(agencia.getNome(),agencia);
