@@ -8,23 +8,18 @@ import org.ada.devolucao.repository.DevolucaoRepository;
 
 import java.util.List;
 
-public abstract class DevolucaoServiceImplBase implements DevolucaoService {
+public class DevolucaoServiceImpl implements DevolucaoService {
 
     private DevolucaoRepository devolucaoRepository;
 
-    public DevolucaoServiceImplBase(DevolucaoRepository devolucaoRepository) {
+    public DevolucaoServiceImpl(DevolucaoRepository devolucaoRepository) {
         this.devolucaoRepository = devolucaoRepository;
     }
 
 
     @Override
-    public Devolucao realizarDevolucao(Aluguel aluguel) {
-
-        Double desconto = this.calcularTaxaDesconto(aluguel);
-
-        Double taxaDeslocamento = this.calcularTaxaDeslocamento(aluguel);
-
-        return new Devolucao(aluguel,desconto,taxaDeslocamento);
+    public Devolucao realizarDevolucao(Aluguel aluguel, DevolucaoCreateService devolucaoCreateService) {
+        return devolucaoCreateService.devolver(aluguel);
     }
 
 
@@ -50,7 +45,5 @@ public abstract class DevolucaoServiceImplBase implements DevolucaoService {
         //logica
         return devolucaoRepository.buscarTodasDevolucoesDoCliente(cliente);
     }
-    public abstract Double calcularTaxaDesconto(Aluguel aluguel);
 
-    public abstract Double calcularTaxaDeslocamento(Aluguel aluguel);
 }
