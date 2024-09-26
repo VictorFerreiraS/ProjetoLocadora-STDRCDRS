@@ -21,7 +21,11 @@ public abstract class VeiculoService {
     public Veiculo deletarVeiculo(Veiculo veiculo) {
         return veiculoRepository.deletar(veiculo);
     }
-    public Veiculo buscarVeiculo(String placa) {
+    public Veiculo buscarVeiculoPorPlaca(String placa) {
         return veiculoRepository.buscarVeiculoPorPlaca(placa);
     }
+
+    public Veiculo buscaPorId(String id){return veiculoRepository.buscaPorId(id);}
+
+    public Veiculo deletarPorId(String id){return veiculoRepository.deletarPorId(id);}
 }

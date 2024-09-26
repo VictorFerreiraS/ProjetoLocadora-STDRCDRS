@@ -1,0 +1,5 @@
+927cdcaf-93ce-491c-ac48-6cdb87296de0 | Veiculo{placa='ABC1234', marca='VW', modelo='caminhaoVw', ano='2020', tipoVeiculo=CAMINHAO}
+dab10a2f-43cd-442c-a526-ee1325428cf2 | Veiculo{placa='ABC1235', marca='FIAT', modelo='uno', ano='2020', tipoVeiculo=CARRO}
+a9c45c3f-103b-4d1a-a971-c9ddffc85d02 | Veiculo{placa='ABC1236', marca='FORD', modelo='l200', ano='2020', tipoVeiculo=CARRO}
+97720e7c-b119-41cc-af73-15358bef1a66 | Veiculo{placa='ABC1237', marca='BMW', modelo='algumacoisa', ano='2020', tipoVeiculo=CARRO}
+ec37cf9a-df16-44bb-8b35-964671a81f68 | Veiculo{placa='ABC1238', marca='HONDA', modelo='motinha', ano='2020', tipoVeiculo=MOTO}

@@ -1,15 +1,21 @@
 package org.ada.veiculo.service;
 
+import org.ada.dataframework.filehandling.FileHandling;
 import org.ada.veiculo.models.Veiculo;
 import org.ada.veiculo.repository.VeiculoRepository;
 
 public class VeiculoServiceImpl extends VeiculoService {
-    public VeiculoServiceImpl(VeiculoRepository veiculoRepository) {
+
+    private final FileHandling fileHandling;
+
+    public VeiculoServiceImpl(VeiculoRepository veiculoRepository, FileHandling fileHandling) {
         super(veiculoRepository);
+        this.fileHandling = fileHandling;
     }
 
     @Override
     public Veiculo salvarVeiculo(Veiculo veiculo) {
+        fileHandling.createFile();
         //logica
         return super.salvarVeiculo(veiculo);
     }
@@ -27,8 +33,18 @@ public class VeiculoServiceImpl extends VeiculoService {
     }
 
     @Override
-    public Veiculo buscarVeiculo(String placa) {
+    public Veiculo buscarVeiculoPorPlaca(String placa) {
         //logica
-        return super.buscarVeiculo(placa);
+        return super.buscarVeiculoPorPlaca(placa);
+    }
+
+    @Override
+    public Veiculo buscaPorId(String id){
+        return super.buscaPorId(id);
+    }
+
+    @Override
+    public Veiculo deletarPorId(String id){
+        return super.deletarPorId(id);
     }
 }

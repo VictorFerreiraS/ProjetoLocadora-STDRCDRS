@@ -1,0 +1,1 @@
+testeVeiculo{placa='ABC1235', marca='MARCA', modelo='modelo', ano='2020', tipoVeiculo=CAMINHAO}
