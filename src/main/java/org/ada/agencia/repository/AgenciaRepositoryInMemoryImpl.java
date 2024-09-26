@@ -28,7 +28,7 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
         }
 
         return result;
-    };
+    }
 
 
     @Override

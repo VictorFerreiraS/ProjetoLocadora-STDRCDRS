@@ -18,7 +18,7 @@ public class AgenciaServiceImpl extends AgenciaService {
     public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){
         validadoresDeAgencia.checarSeAgenciaNaoExiste(agencia.getNome());
         return agenciaRepositoryInMemory.adicionarVeiculo(agencia.getNome(), veiculo);
-    };
+    }
 
 
 

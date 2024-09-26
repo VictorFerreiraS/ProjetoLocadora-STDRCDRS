@@ -23,7 +23,7 @@ public abstract class AgenciaService{
         return agenciaRepositoryInMemory.procurarAgencia(nomeAgencia);
     }
 
-    public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){return agenciaRepositoryInMemory.adicionarVeiculo(agencia.getNome(), veiculo);};
+    public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){return agenciaRepositoryInMemory.adicionarVeiculo(agencia.getNome(), veiculo);}
 
     public Agencia deletarAgencia(Agencia agencia) {
         return agenciaRepositoryInMemory.deletar(agencia);
