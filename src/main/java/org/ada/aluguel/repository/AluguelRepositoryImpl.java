@@ -1,8 +1,10 @@
-package org.ada.aluguel;
+package org.ada.aluguel.repository;
 
+import org.ada.aluguel.models.Aluguel;
 import org.ada.cliente.models.Cliente;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AluguelRepositoryImpl implements AluguelRepository {
@@ -44,5 +46,10 @@ public class AluguelRepositoryImpl implements AluguelRepository {
     @Override
     public Aluguel buscarAluguelPorNome(String nome) {
         return aluguelDatabase.values().stream().filter(aluguel -> aluguel.getCliente().getNome().equals(nome)).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Aluguel> buscarTodosAlugueis() {
+        return aluguelDatabase.values().stream().toList();
     }
 }
