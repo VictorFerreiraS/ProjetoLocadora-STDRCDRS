@@ -1,7 +1,7 @@
 package org.ada.devolucao.service;
 
 
-import org.ada.aluguel.Aluguel;
+import org.ada.aluguel.models.Aluguel;
 import org.ada.cliente.models.Cliente;
 import org.ada.devolucao.models.Devolucao;
 import org.ada.devolucao.repository.DevolucaoRepository;

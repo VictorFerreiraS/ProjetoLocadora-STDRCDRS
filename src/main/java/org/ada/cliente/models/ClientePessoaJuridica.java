@@ -1,6 +1,6 @@
 package org.ada.cliente.models;
 
-import org.ada.aluguel.Aluguel;
+import org.ada.aluguel.models.Aluguel;
 
 public class ClientePessoaJuridica extends Cliente{
 

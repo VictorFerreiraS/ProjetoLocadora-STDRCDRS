@@ -1,6 +1,6 @@
 package org.ada.devolucao.service;
 
-import org.ada.aluguel.Aluguel;
+import org.ada.aluguel.models.Aluguel;
 import org.ada.devolucao.models.Devolucao;
 
 public class DevolucaoServicePF implements DevolucaoCreateService {

@@ -1,6 +1,6 @@
 package org.ada.cliente.models;
 
-import org.ada.aluguel.Aluguel;
+import org.ada.aluguel.models.Aluguel;
 import org.ada.basemodel.BaseModel;
 
 import java.util.Objects;
