@@ -1,30 +1,31 @@
 package org.ada.devolucao.service;
 
 import org.ada.aluguel.Aluguel;
-import org.ada.devolucao.repository.DescontosPJRepository;
-import org.ada.devolucao.repository.DevolucaoRepository;
+import org.ada.devolucao.models.Devolucao;
 
-public class DevolucaoServicePJ extends DevolucaoServiceImplBase {
+public class DevolucaoServicePJ implements DevolucaoCreateService {
 
-    private DescontosPJRepository descontosPJRepository;
+    private static final Double DESCONTO = 0.1;
+    private static final Integer DIAS_PARA_DESCONTO = 3;
 
-    public DevolucaoServicePJ(DevolucaoRepository devolucaoRepository, DescontosPJRepository descontosPJRepository) {
-        super(devolucaoRepository);
-        this.descontosPJRepository = descontosPJRepository;
+    private static final Double TAXA_DESLOCAMENTO = 0.05;
+    @Override
+    public Devolucao devolver(Aluguel aluguel) {
+        Double desconto = calcularDesconto(aluguel);
+        Double taxaDeslocamento = calcularTaxaDeslocamento(aluguel);
+        return new Devolucao(aluguel,desconto,taxaDeslocamento);
     }
 
-
-    @Override
-    public Double calcularTaxaDesconto(Aluguel aluguel) {
-        if (aluguel.getTempoLocacaoEmDias() >= descontosPJRepository.getDiasNecessarios()) {
-            return descontosPJRepository.getDesconto();
+    private Double calcularDesconto(Aluguel aluguel) {
+        if (aluguel.getTempoLocacaoEmDias() >= DIAS_PARA_DESCONTO) {
+            return DESCONTO;
         }
-        return 0.0;
+        return 0d;
     }
 
-    @Override
-    public Double calcularTaxaDeslocamento(Aluguel aluguel) {
-        if (aluguel.isMesmoLocalDeDevolucao()) return 0.0;
-        return descontosPJRepository.getTaxaDeslocamento();
+    private Double calcularTaxaDeslocamento(Aluguel aluguel) {
+        if (aluguel.isMesmoLocalDeDevolucao()) return 0d;
+        return TAXA_DESLOCAMENTO;
     }
+
 }

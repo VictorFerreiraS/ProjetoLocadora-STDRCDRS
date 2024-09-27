@@ -10,7 +10,7 @@ import java.util.List;
 public interface DevolucaoService {
 
 
-    Devolucao realizarDevolucao(Aluguel aluguel);
+    Devolucao realizarDevolucao(Aluguel aluguel, DevolucaoCreateService devolucaoCreateService);
 
     Devolucao salvarDevolucao(Devolucao devolucao);
 
