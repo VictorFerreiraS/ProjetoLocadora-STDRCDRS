@@ -1,6 +1,7 @@
-package org.ada.aluguel;
+package org.ada.aluguel.service;
 
-import org.ada.agencia.models.Agencia;
+import org.ada.aluguel.models.Aluguel;
+import org.ada.aluguel.repository.AluguelRepository;
 import org.ada.cliente.models.Cliente;
 
 public abstract class AluguelService {

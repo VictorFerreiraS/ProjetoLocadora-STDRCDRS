@@ -1,7 +1,9 @@
 package org.ada.cliente.models;
 
-import org.ada.aluguel.Aluguel;
+import org.ada.aluguel.models.Aluguel;
 import org.ada.basemodel.BaseModel;
+
+import java.util.Objects;
 
 public abstract class Cliente extends BaseModel {
 
@@ -47,4 +49,16 @@ public abstract class Cliente extends BaseModel {
 
     public abstract Double getDesconto(Aluguel aluguel);
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(documento, cliente.documento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(documento);
+    }
 }

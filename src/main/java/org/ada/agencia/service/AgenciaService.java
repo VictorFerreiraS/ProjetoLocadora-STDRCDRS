@@ -2,6 +2,7 @@ package org.ada.agencia.service;
 
 import org.ada.agencia.models.Agencia;
 
+import org.ada.agencia.repository.AgenciaRepository;
 import org.ada.agencia.repository.AgenciaRepositoryInMemoryImpl;
 import org.ada.veiculo.models.Veiculo;
 
@@ -9,32 +10,32 @@ import java.util.List;
 
 public abstract class AgenciaService{
 
-    protected final AgenciaRepositoryInMemoryImpl agenciaRepositoryInMemory;
+    protected final AgenciaRepository agenciaRepository;
 
-    public AgenciaService(AgenciaRepositoryInMemoryImpl agenciaRepositoryInMemory) {
-        this.agenciaRepositoryInMemory = agenciaRepositoryInMemory;
+    public AgenciaService(AgenciaRepository agenciaRepository) {
+        this.agenciaRepository = agenciaRepository;
     }
 
 
     public Agencia criarAgencia(Agencia agencia) {
-        return agenciaRepositoryInMemory.inserir(agencia);
+        return agenciaRepository.inserir(agencia);
     }
 
     public List<Agencia> procurarAgencia(String nomeAgencia) {
-        return agenciaRepositoryInMemory.procurarAgencia(nomeAgencia);
+        return agenciaRepository.procurarAgencia(nomeAgencia);
     }
 
-    public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){return agenciaRepositoryInMemory.adicionarVeiculo(agencia.getNome(), veiculo);}
+    public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){return agenciaRepository.adicionarVeiculo(agencia.getNome(), veiculo);}
 
     public Agencia deletarAgencia(Agencia agencia) {
-        return agenciaRepositoryInMemory.deletar(agencia);
+        return agenciaRepository.deletar(agencia);
     }
 
     public Agencia deletarAgencia(String id) {
-        return agenciaRepositoryInMemory.deletarPorId(id);
+        return agenciaRepository.deletarPorId(id);
     }
     public Agencia alterarAgencia(Agencia agencia) {
-        return agenciaRepositoryInMemory.alterar(agencia);
+        return agenciaRepository.alterar(agencia);
     }
 
 }
