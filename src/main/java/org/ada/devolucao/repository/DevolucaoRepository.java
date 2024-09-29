@@ -10,4 +10,6 @@ public interface DevolucaoRepository extends CrudRepository<Devolucao, String> {
 
     List<Devolucao> buscarTodasDevolucoesDoCliente(Cliente cliente);
 
+    List<Devolucao> buscarTodasDevolucoes();
+
 }

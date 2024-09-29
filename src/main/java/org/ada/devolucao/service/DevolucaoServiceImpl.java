@@ -5,12 +5,15 @@ import org.ada.aluguel.models.Aluguel;
 import org.ada.cliente.models.Cliente;
 import org.ada.devolucao.models.Devolucao;
 import org.ada.devolucao.repository.DevolucaoRepository;
+import org.ada.devolucao.validations.ValidadorDeDevolucao;
 
 import java.util.List;
 
 public class DevolucaoServiceImpl implements DevolucaoService {
 
     private DevolucaoRepository devolucaoRepository;
+
+    private ValidadorDeDevolucao validadorDeDevolucao = new ValidadorDeDevolucao(devolucaoRepository);
 
     public DevolucaoServiceImpl(DevolucaoRepository devolucaoRepository) {
         this.devolucaoRepository = devolucaoRepository;
@@ -25,24 +28,26 @@ public class DevolucaoServiceImpl implements DevolucaoService {
 
     @Override
     public Devolucao salvarDevolucao(Devolucao devolucao) {
-        //logica
+        validadorDeDevolucao.checarSeExiste(devolucao);
         return devolucaoRepository.inserir(devolucao);
     }
     @Override
     public Devolucao atualizarDevolucao(Devolucao devolucao) {
-        //logica
+        validadorDeDevolucao.checarSeNaoExiste(devolucao);
         return devolucaoRepository.alterar(devolucao);
     }
 
     @Override
     public Devolucao buscarDevolucaoPorId(String id) {
-        //logica
+        Devolucao devolucao = devolucaoRepository.buscarTodasDevolucoes()
+                .stream().filter(dev -> dev.getUuid().equalsIgnoreCase(id)).findFirst().orElse(null);
+        validadorDeDevolucao.checarSeNaoExiste(devolucao);
         return devolucaoRepository.buscaPorId(id);
     }
 
     @Override
     public List<Devolucao> buscarDevolucaoPorCliente(Cliente cliente) {
-        //logica
+        validadorDeDevolucao.checarSeNaoExiste(cliente);
         return devolucaoRepository.buscarTodasDevolucoesDoCliente(cliente);
     }
 
