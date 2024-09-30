@@ -42,4 +42,9 @@ public class DevolucaoRepositoryImpl implements DevolucaoRepository {
     public List<Devolucao> buscarTodasDevolucoesDoCliente(Cliente cliente) {
         return devolucaoDatabase.values().stream().filter(devolucao -> devolucao.getAluguel().getCliente().equals(cliente)).toList();
     }
+
+    @Override
+    public List<Devolucao> buscarTodasDevolucoes() {
+        return devolucaoDatabase.values().stream().toList();
+    }
 }

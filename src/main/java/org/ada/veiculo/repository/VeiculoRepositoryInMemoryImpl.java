@@ -3,40 +3,46 @@ package org.ada.veiculo.repository;
 import org.ada.veiculo.models.Veiculo;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class VeiculoRepositoryInMemoryImpl implements VeiculoRepository {
-    private final Map<String, Veiculo> veiculos = new HashMap<>();
+    private final Map<String, Veiculo> veiculosDatabase = new HashMap<>();
 
     @Override
     public Veiculo inserir(Veiculo obj) {
-        veiculos.put(obj.getUuid(), obj);
+        veiculosDatabase.put(obj.getUuid(), obj);
         return obj;
     }
 
     @Override
     public Veiculo alterar(Veiculo obj) {
-        veiculos.put(obj.getUuid(), obj);
+        veiculosDatabase.put(obj.getUuid(), obj);
         return obj;
     }
 
     @Override
     public Veiculo deletar(Veiculo obj) {
-        return veiculos.remove(obj.getUuid());
+        return veiculosDatabase.remove(obj.getUuid());
     }
 
     @Override
     public Veiculo buscaPorId(String id) {
-        return veiculos.get(id);
+        return veiculosDatabase.get(id);
     }
 
     @Override
     public Veiculo deletarPorId(String id) {
-        return veiculos.remove(id);
+        return veiculosDatabase.remove(id);
     }
 
     @Override
     public Veiculo buscarVeiculoPorPlaca(String placa) {
-        return veiculos.values().stream().filter(veiculo -> veiculo.getPlaca().equalsIgnoreCase(placa)).findFirst().orElse(null);
+        return veiculosDatabase.values().stream().filter(veiculo -> veiculo.getPlaca().equalsIgnoreCase(placa)).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Veiculo> buscarTodosVeiculos() {
+        return veiculosDatabase.values().stream().toList();
     }
 }

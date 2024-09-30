@@ -3,6 +3,8 @@ package org.ada.veiculo.service;
 import org.ada.veiculo.models.Veiculo;
 import org.ada.veiculo.repository.VeiculoRepository;
 
+import java.util.List;
+
 public abstract class VeiculoService {
     protected final VeiculoRepository veiculoRepository;
 
@@ -23,5 +25,9 @@ public abstract class VeiculoService {
     }
     public Veiculo buscarVeiculo(String placa) {
         return veiculoRepository.buscarVeiculoPorPlaca(placa);
+    }
+
+    public List<Veiculo> buscarTodosVeiculos() {
+        return veiculoRepository.buscarTodosVeiculos();
     }
 }

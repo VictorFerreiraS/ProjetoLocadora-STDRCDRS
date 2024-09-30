@@ -4,6 +4,8 @@ import org.ada.veiculo.models.Veiculo;
 import org.ada.veiculo.repository.VeiculoRepository;
 import org.ada.veiculo.validations.exceptions.VeiculoInvalidoException;
 
+import java.util.List;
+
 public class ValidadorDeVeiculo {
 
     private final VeiculoRepository veiculoRepository;
@@ -13,11 +15,17 @@ public class ValidadorDeVeiculo {
     }
 
     public void checarSeExiste(Veiculo veiculo) {
-
+        List<Veiculo> listaDeVeiculos = this.veiculoRepository.buscarTodosVeiculos();
+        if (listaDeVeiculos.contains(veiculo)) {
+            throw new VeiculoInvalidoException("Veiculo ja existe");
+        }
     }
 
     public void checarSeNaoExiste(Veiculo veiculo) {
-
+        List<Veiculo> listaDeVeiculos = this.veiculoRepository.buscarTodosVeiculos();
+        if (!listaDeVeiculos.contains(veiculo)) {
+            throw new VeiculoInvalidoException("Veiculo inexistente");
+        }
     }
 
     public void checarPlaca(String placa) {
