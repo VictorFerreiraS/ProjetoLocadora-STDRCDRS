@@ -95,14 +95,13 @@ public class Aluguel extends BaseModel implements ComprovanteGeneratable {
 
     @Override
     public String toString() {
-        return "Aluguel{" +
-                "cliente=" + cliente +
-                ", veiculo=" + veiculo +
-                ", dataAluguel=" + dataAluguel +
-                ", tempoLocacaoEmDias=" + tempoLocacaoEmDias +
-                ", agenciaDeRetirada=" + agenciaDeRetirada +
-                ", agenciaDeDevolucao=" + agenciaDeDevolucao +
-                '}';
+        return "Aluguel:\n" +
+                "Cliente: " + cliente +
+                "\n Veiculo:" + veiculo +
+                "\n Data do Aluguel=" + dataAluguel +
+                ", tempoLocacaoEmDias= " + tempoLocacaoEmDias +
+                "\n Agencia para Retirada= " + agenciaDeRetirada +
+                "\n Agencia para Devolucao= " + agenciaDeDevolucao;
     }
 
     @Override

@@ -82,12 +82,9 @@ public class Devolucao extends BaseModel implements ComprovanteGeneratable {
 
     @Override
     public String toString() {
-        return "Devolucao{" +
-                "aluguel=" + aluguel +
-                ", dataDaDevolucao=" + dataDaDevolucao +
-                ", valorFinal=" + valorFinal +
-                ", desconto=" + desconto +
-                ", taxaDeslocamento=" + taxaDeslocamento +
-                '}';
+        return "Devolucao: \n" +
+                "Aluguel: " + aluguel +
+                "\n dataDaDevolucao= " + dataDaDevolucao +
+                "\n valorFinal= " + valorFinal;
     }
 }

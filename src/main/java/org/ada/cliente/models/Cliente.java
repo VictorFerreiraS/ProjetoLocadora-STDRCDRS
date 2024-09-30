@@ -63,10 +63,8 @@ public abstract class Cliente extends BaseModel {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", documento='" + documento + '\'' +
-                ", tipoCliente=" + tipoCliente +
-                '}';
+        return "Nome= " + nome +
+                ", documento= " + documento +
+                ", tipo= " + tipoCliente;
     }
 }

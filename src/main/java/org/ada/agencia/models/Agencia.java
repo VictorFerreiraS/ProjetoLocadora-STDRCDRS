@@ -47,11 +47,8 @@ public class Agencia extends BaseModel {
 
     @Override
     public String toString() {
-        return "Agencia{" +
-                "nome='" + nome + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", listaDeVeiculos=" + listaDeVeiculos +
-                '}';
+        return "Nome= " + nome +
+                ", Endereço=" + endereco;
     }
 }
 
