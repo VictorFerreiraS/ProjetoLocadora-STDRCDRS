@@ -19,20 +19,13 @@ public abstract class ClienteService {
         return clienteRepository.alterar(cliente);
     }
 
-    public Cliente removerCliente(Cliente cliente) {
-        return clienteRepository.deletar(cliente);
-    }
-
     public Cliente removerCliente(String id) {
-        return clienteRepository.deletarPorId(id);
+        return clienteRepository.deletar(id);
     }
 
     public Cliente buscarCliente(String id) {
         return clienteRepository.buscaPorId(id);
     }
 
-    public Cliente buscarPorNome(String nome) {
-        return clienteRepository.buscarPorNome(nome);
-    }
 }
 

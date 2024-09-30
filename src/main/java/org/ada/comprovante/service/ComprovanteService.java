@@ -35,7 +35,7 @@ public abstract class ComprovanteService<T extends ComprovanteGeneratable> {
         return comprovanteRepository.alterar(comprovante);
     }
 
-    public Comprovante<T> deletarComprovante(Comprovante<T> comprovante) {
-        return comprovanteRepository.deletar(comprovante);
+    public Comprovante<T> deletarComprovante(String id) {
+        return comprovanteRepository.deletar(id);
     }
 }

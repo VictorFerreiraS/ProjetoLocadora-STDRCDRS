@@ -13,7 +13,6 @@ public abstract class Cliente extends BaseModel {
 
     private TipoCliente tipoCliente;
 
-
     public Cliente() {
     }
 

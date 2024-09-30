@@ -38,5 +38,4 @@ public class AluguelServiceImpl extends AluguelService {
         return super.atualizarAluguel(aluguel);
     }
 
-
 }

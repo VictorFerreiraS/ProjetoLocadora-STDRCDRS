@@ -25,17 +25,12 @@ public class ComprovanteRepositoryImpl<T extends ComprovanteGeneratable> impleme
     }
 
     @Override
-    public Comprovante<T> deletar(Comprovante<T> comprovante) {
-        return comprovanteDatabase.remove(comprovante.comprovanteId());
-    }
-
-    @Override
     public Comprovante<T> buscaPorId(String id) {
         return comprovanteDatabase.get(id);
     }
 
     @Override
-    public Comprovante<T> deletarPorId(String id) {
+    public Comprovante<T> deletar(String id) {
         return comprovanteDatabase.remove(id);
     }
 

@@ -20,8 +20,8 @@ public abstract class VeiculoService {
         return veiculoRepository.alterar(veiculo);
     }
 
-    public Veiculo deletarVeiculo(Veiculo veiculo) {
-        return veiculoRepository.deletar(veiculo);
+    public Veiculo deletarVeiculo(String id) {
+        return veiculoRepository.deletar(id);
     }
     public Veiculo buscarVeiculo(String placa) {
         return veiculoRepository.buscarVeiculoPorPlaca(placa);

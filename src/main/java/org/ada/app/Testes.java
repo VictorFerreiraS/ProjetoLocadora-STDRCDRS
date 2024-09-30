@@ -11,6 +11,7 @@ import org.ada.aluguel.repository.AluguelRepository;
 import org.ada.aluguel.repository.AluguelRepositoryImpl;
 import org.ada.aluguel.service.AluguelService;
 import org.ada.aluguel.service.AluguelServiceImpl;
+import org.ada.aluguel.validations.ValidadorDeAluguel;
 import org.ada.cliente.models.Cliente;
 import org.ada.cliente.models.ClientePessoaFisica;
 import org.ada.cliente.repository.ClienteRepository;
@@ -50,7 +51,7 @@ public class Testes {
 
         //instanciando o reposotorio de aluguel e seu servico
         AluguelRepository aluguelRepository = new AluguelRepositoryImpl();
-        AluguelService aluguelService = new AluguelServiceImpl(aluguelRepository);
+        AluguelService aluguelService = new AluguelServiceImpl(aluguelRepository, new ValidadorDeAluguel(aluguelRepository));
 
         //instanciando os repositorios dos descontos
         //DescontosPJRepository descontosPJRepository = new DescontosPJRepositoryImpl();
@@ -77,7 +78,7 @@ public class Testes {
         agenciaService.adicionarVeiculo(agencia1,veiculo1);
 
         Aluguel aluguel1 = new Aluguel(cliente1,veiculo1,agencia1,10);
-        aluguelService.criarAluguel(aluguel1);
+//        aluguelService.criarAluguel(aluguel1);
 
         Devolucao devolucao1 = devolucaoService.realizarDevolucao(aluguel1,devolucaoCreateServicePF);
         devolucaoService.salvarDevolucao(devolucao1);

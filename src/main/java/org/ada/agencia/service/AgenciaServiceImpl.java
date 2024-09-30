@@ -21,29 +21,21 @@ public class AgenciaServiceImpl extends AgenciaService {
         return agenciaRepository.adicionarVeiculo(agencia.getNome(), veiculo);
     }
 
-
-
     @Override
     public Agencia criarAgencia(Agencia agencia) {
-        validadoresDeAgencia.checarSeAgenciaExiste(agencia.getNome());
+        validadoresDeAgencia.checarSeAgenciaExiste(agencia.getUuid());
         return super.criarAgencia(agencia);
     }
 
     @Override
-    public Agencia deletarAgencia(Agencia agencia) {
-        validadoresDeAgencia.checarSeAgenciaExiste(agencia.getNome());
-        return super.deletarAgencia(agencia);
+    public Agencia deletar(String uuid) {
+        validadoresDeAgencia.checarSeAgenciaExiste(uuid);
+        return super.deletar(uuid);
     }
 
     @Override
-    public Agencia deletarAgencia(String id) {
+    public Agencia alterar(Agencia agencia) {
         //logica
-        return super.deletarAgencia(id);
-    }
-
-    @Override
-    public Agencia alterarAgencia(Agencia agencia) {
-        //logica
-        return super.alterarAgencia(agencia);
+        return super.alterar(agencia);
     }
 }

@@ -22,17 +22,12 @@ public class VeiculoRepositoryInMemoryImpl implements VeiculoRepository {
     }
 
     @Override
-    public Veiculo deletar(Veiculo obj) {
-        return veiculosDatabase.remove(obj.getUuid());
-    }
-
-    @Override
     public Veiculo buscaPorId(String id) {
         return veiculosDatabase.get(id);
     }
 
     @Override
-    public Veiculo deletarPorId(String id) {
+    public Veiculo deletar(String id) {
         return veiculosDatabase.remove(id);
     }
 

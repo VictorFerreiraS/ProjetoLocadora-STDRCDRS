@@ -11,7 +11,6 @@ public class Agencia extends BaseModel {
     private String endereco;
     private Set<Veiculo> listaDeVeiculos;
 
-
     public Agencia(String nome, String endereco, Set<Veiculo> listaDeVeiculos) {
         this.nome = nome;
         this.endereco = endereco;

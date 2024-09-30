@@ -23,9 +23,9 @@ public class VeiculoServiceImpl extends VeiculoService {
     }
 
     @Override
-    public Veiculo deletarVeiculo(Veiculo veiculo) {
+    public Veiculo deletarVeiculo(String id) {
         //logica
-        return super.deletarVeiculo(veiculo);
+        return super.deletarVeiculo(id);
     }
 
     @Override

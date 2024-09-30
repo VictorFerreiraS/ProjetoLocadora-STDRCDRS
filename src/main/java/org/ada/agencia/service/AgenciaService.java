@@ -16,7 +16,6 @@ public abstract class AgenciaService{
         this.agenciaRepository = agenciaRepository;
     }
 
-
     public Agencia criarAgencia(Agencia agencia) {
         return agenciaRepository.inserir(agencia);
     }
@@ -27,14 +26,11 @@ public abstract class AgenciaService{
 
     public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){return agenciaRepository.adicionarVeiculo(agencia.getNome(), veiculo);}
 
-    public Agencia deletarAgencia(Agencia agencia) {
-        return agenciaRepository.deletar(agencia);
+    public Agencia deletar(String id) {
+        return agenciaRepository.deletar(id);
     }
 
-    public Agencia deletarAgencia(String id) {
-        return agenciaRepository.deletarPorId(id);
-    }
-    public Agencia alterarAgencia(Agencia agencia) {
+    public Agencia alterar(Agencia agencia) {
         return agenciaRepository.alterar(agencia);
     }
 

@@ -40,17 +40,12 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
     }
 
     @Override
-    public Agencia deletar(Agencia agencia) {
-        return agenciaDatabase.remove(agencia.getUuid());
-    }
-
-    @Override
     public Agencia buscaPorId(String id) {
         return agenciaDatabase.get(id);
     }
 
     @Override
-    public Agencia deletarPorId(String id) {
+    public Agencia deletar(String id) {
         return agenciaDatabase.remove(id);
     }
 }

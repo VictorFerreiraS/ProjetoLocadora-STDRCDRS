@@ -15,6 +15,7 @@ public abstract class AluguelService {
     public Aluguel criarAluguel(Aluguel aluguel) {
         return aluguelRepository.inserir(aluguel);
     }
+
     public Aluguel buscarAluguel(Cliente cliente) {
         return aluguelRepository.buscarAluguelPorCliente(cliente);
     }

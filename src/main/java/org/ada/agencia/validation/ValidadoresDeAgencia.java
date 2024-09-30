@@ -16,9 +16,9 @@ public class ValidadoresDeAgencia {
     }
 
 
-    public void checarSeAgenciaExiste(String nomeAgencia) {
+    public void checarSeAgenciaExiste(String uuid) {
         List<Agencia> agencias = new ArrayList<>(agenciaRepository.buscarTodasAgencias());
-        if (agencias.stream().anyMatch(agencia -> agencia.getNome().equalsIgnoreCase(nomeAgencia))) {
+        if (agencias.stream().anyMatch(agencia -> agencia.getUuid().equalsIgnoreCase(uuid))) {
             throw new AgenciaInvalidaException("Nome de agencia ja existe");
         }
     }

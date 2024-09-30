@@ -5,15 +5,14 @@ import org.ada.cliente.repository.ClienteRepository;
 import org.ada.cliente.validations.ValidadorDeCliente;
 import org.ada.cliente.validations.exception.ClienteInvalidoException;
 
-
 public class ClienteServiceImpl extends ClienteService {
 
     private final ValidadorDeCliente validadorDeCliente = new ValidadorDeCliente(clienteRepository);
 
-
     public ClienteServiceImpl(ClienteRepository clienteRepository) {
         super(clienteRepository);
     }
+
     @Override
     public Cliente criarCliente(Cliente cliente) {
 //        try {
@@ -30,12 +29,6 @@ public class ClienteServiceImpl extends ClienteService {
         validadorDeCliente.clienteInexistenteNoBD(cliente.getDocumento());
         validadorDeCliente.documentoInvalido(cliente.getDocumento());
         return super.alterarCliente(cliente);
-    }
-
-    @Override
-    public Cliente removerCliente(Cliente cliente) {
-        validadorDeCliente.clienteInexistenteNoBD(cliente.getDocumento());
-        return super.removerCliente(cliente);
     }
 
     @Override

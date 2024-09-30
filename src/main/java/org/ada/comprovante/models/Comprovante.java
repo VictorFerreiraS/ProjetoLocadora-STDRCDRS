@@ -11,5 +11,10 @@ public record Comprovante<T extends ComprovanteGeneratable>(
     public Comprovante(T dados) {
         this(UUID.randomUUID().toString(), LocalDateTime.now(), dados);
     }
+
+    @Override
+    public String comprovanteId() {
+        return comprovanteId;
+    }
 }
 
