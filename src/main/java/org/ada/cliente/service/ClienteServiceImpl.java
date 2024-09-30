@@ -24,10 +24,10 @@ public class ClienteServiceImpl extends ClienteService {
     }
 
     @Override
-    public Cliente alterar(Cliente cliente){
+    public Cliente alterar(String uuid, Cliente cliente){
         validadorDeCliente.clienteInexistenteNoBD(cliente.getDocumento());
         validadorDeCliente.documentoInvalido(cliente.getDocumento());
-        return super.alterar(cliente);
+        return super.alterar(uuid, cliente);
     }
 
     @Override

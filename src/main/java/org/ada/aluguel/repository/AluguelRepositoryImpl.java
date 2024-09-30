@@ -18,8 +18,9 @@ public class AluguelRepositoryImpl implements AluguelRepository {
     }
 
     @Override
-    public Aluguel alterar(Aluguel aluguel) {
-        return aluguelDatabase.replace(aluguel.getCliente(),aluguel);
+    public Aluguel alterar(String uuid, Aluguel aluguel) {
+        Aluguel aluguelAlterar = buscaPorId(uuid);
+        return aluguelDatabase.put(aluguelAlterar.getCliente(), aluguel);
     }
 
     @Override

@@ -21,8 +21,8 @@ public class ComprovanteServiceImpl<T extends ComprovanteGeneratable> extends Co
     }
 
     @Override
-    public Comprovante<T> atualizarComprovante(Comprovante<T> comprovante) {
+    public Comprovante<T> atualizarComprovante(String uuid, Comprovante<T> comprovante) {
         validadorDeComprovante.checarSeNaoExiste(comprovante);
-        return super.atualizarComprovante(comprovante);
+        return super.atualizarComprovante(uuid, comprovante);
     }
 }

@@ -20,7 +20,7 @@ public abstract class AluguelService {
         return aluguelRepository.buscarAluguelPorCliente(cliente);
     }
 
-    public Aluguel atualizarAluguel(Aluguel aluguel) {
-        return aluguelRepository.alterar(aluguel);
+    public Aluguel alterarAluguel(String uuid, Aluguel aluguel) {
+        return aluguelRepository.alterar(uuid, aluguel);
     }
 }

@@ -15,8 +15,8 @@ public abstract class ClienteService {
        return clienteRepository.inserir(cliente);
     }
 
-    public Cliente alterar(Cliente cliente) {
-        return clienteRepository.alterar(cliente);
+    public Cliente alterar(String uuid, Cliente cliente) {
+        return clienteRepository.alterar(uuid, cliente);
     }
 
     public Cliente deletar(String id) {

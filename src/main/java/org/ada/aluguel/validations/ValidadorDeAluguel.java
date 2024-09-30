@@ -43,7 +43,7 @@ public class ValidadorDeAluguel {
 
 
     public void checarSeVeiculoExisteNaAguencia(Agencia agencia, Veiculo veiculo) {
-        Set<Veiculo> veiculosDaAgencia = agencia.getListaDeVeiculos();
+        List<Veiculo> veiculosDaAgencia = agencia.getListaDeVeiculos();
         if (!veiculosDaAgencia.contains(veiculo)) {
             throw new AluguelInvalidoException("Agencia nao possui este veiculo");
         }

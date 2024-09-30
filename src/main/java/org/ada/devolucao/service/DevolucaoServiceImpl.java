@@ -32,9 +32,9 @@ public class DevolucaoServiceImpl implements DevolucaoService {
         return devolucaoRepository.inserir(devolucao);
     }
     @Override
-    public Devolucao atualizarDevolucao(Devolucao devolucao) {
+    public Devolucao atualizarDevolucao(String uuid, Devolucao devolucao) {
         validadorDeDevolucao.checarSeNaoExiste(devolucao);
-        return devolucaoRepository.alterar(devolucao);
+        return devolucaoRepository.alterar(uuid, devolucao);
     }
 
     @Override

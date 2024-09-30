@@ -16,8 +16,8 @@ public abstract class VeiculoService {
         return veiculoRepository.inserir(veiculo);
     }
 
-    public Veiculo alterar(Veiculo veiculo) {
-        return veiculoRepository.alterar(veiculo);
+    public Veiculo alterar(String uuid, Veiculo veiculo) {
+        return veiculoRepository.alterar(uuid, veiculo);
     }
 
     public Veiculo buscaPorId(String id){ return veiculoRepository.buscaPorId(id); }

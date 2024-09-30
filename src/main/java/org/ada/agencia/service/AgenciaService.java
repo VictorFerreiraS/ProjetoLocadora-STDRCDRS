@@ -6,6 +6,7 @@ import org.ada.agencia.repository.AgenciaRepository;
 import org.ada.agencia.repository.AgenciaRepositoryInMemoryImpl;
 import org.ada.veiculo.models.Veiculo;
 
+import java.util.Collection;
 import java.util.List;
 
 public abstract class AgenciaService{
@@ -20,8 +21,8 @@ public abstract class AgenciaService{
         return agenciaRepository.inserir(agencia);
     }
 
-    public List<Agencia> procurarAgencia(String nomeAgencia) {
-        return agenciaRepository.procurarAgencia(nomeAgencia);
+    public Agencia buscarAgencia(String nomeAgencia) {
+        return agenciaRepository.buscarAgencia(nomeAgencia);
     }
 
     public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){return agenciaRepository.adicionarVeiculo(agencia.getNome(), veiculo);}
@@ -30,8 +31,16 @@ public abstract class AgenciaService{
         return agenciaRepository.deletar(id);
     }
 
-    public Agencia alterar(Agencia agencia) {
-        return agenciaRepository.alterar(agencia);
+    public Agencia alterar(String uuid, Agencia agencia) {
+        return agenciaRepository.alterar(uuid, agencia);
+    }
+
+    public Agencia buscaPorId(String uuid){
+        return agenciaRepository.buscaPorId(uuid);
+    }
+
+    public Collection<Agencia> buscarTodasAgencias(){
+        return agenciaRepository.buscarTodasAgencias();
     }
 
 }

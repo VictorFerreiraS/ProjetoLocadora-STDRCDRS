@@ -33,9 +33,9 @@ public class AluguelServiceImpl extends AluguelService {
     }
 
     @Override
-    public Aluguel atualizarAluguel(Aluguel aluguel) {
+    public Aluguel alterarAluguel(String uuid, Aluguel aluguel) {
         validadorDeAluguel.checarSeNaoExiste(aluguel);
-        return super.atualizarAluguel(aluguel);
+        return super.alterarAluguel(uuid, aluguel);
     }
 
 }

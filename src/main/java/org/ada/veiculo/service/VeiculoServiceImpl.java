@@ -17,9 +17,9 @@ public class VeiculoServiceImpl extends VeiculoService {
     }
 
     @Override
-    public Veiculo alterar(Veiculo veiculo) {
+    public Veiculo alterar(String uuid, Veiculo veiculo) {
         //logica
-        return super.alterar(veiculo);
+        return super.alterar(uuid, veiculo);
     }
 
     @Override

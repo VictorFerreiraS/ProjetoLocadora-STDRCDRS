@@ -16,8 +16,8 @@ public class ClienteRepositoryInMemoryImpl implements ClienteRepository{
     }
 
     @Override
-    public Cliente alterar(Cliente cliente) {
-        return clienteDatabase.replace(cliente.getUuid(),cliente);
+    public Cliente alterar(String uuid, Cliente cliente) {
+        return clienteDatabase.replace(uuid,cliente);
     }
 
     @Override
