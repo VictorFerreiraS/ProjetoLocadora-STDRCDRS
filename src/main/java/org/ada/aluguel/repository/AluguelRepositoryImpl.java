@@ -17,23 +17,25 @@ public class AluguelRepositoryImpl implements AluguelRepository {
         return aluguelDatabase.put(aluguel.getCliente(),aluguel);
     }
 
+
     @Override
-    public Aluguel alterar(Aluguel aluguel) {
-        return aluguelDatabase.replace(aluguel.getCliente(),aluguel);
+    public Aluguel alterar(String uuid, Aluguel aluguel) {
+        Aluguel aluguelExistente = buscaPorId(uuid);
+        aluguelDatabase.remove(aluguelExistente.getCliente());
+        return aluguelDatabase.put(aluguel.getCliente(), aluguel);
     }
 
     @Override
-    public Aluguel deletar(Aluguel aluguel) {
-        return aluguelDatabase.remove(aluguel.getCliente());
+    public Aluguel buscaPorId(String uuid) {
+        return aluguelDatabase.values().stream()
+                .filter(aluguel -> aluguel.getUuid().equals(uuid))
+                .findFirst()
+                .orElse(null);
     }
 
-    @Override
-    public Aluguel buscaPorId(String id) {
-        return null;
-    }
 
     @Override
-    public Aluguel deletarPorId(String id) {
+    public Aluguel deletar(String id) {
         Aluguel aluguelParaDeletar = aluguelDatabase.values().stream().filter(aluguel -> aluguel.getUuid().equals(id)).findFirst().orElse(null);
         return aluguelDatabase.remove(aluguelParaDeletar.getCliente());
     }
@@ -44,12 +46,9 @@ public class AluguelRepositoryImpl implements AluguelRepository {
     }
 
     @Override
-    public Aluguel buscarAluguelPorNome(String nome) {
-        return aluguelDatabase.values().stream().filter(aluguel -> aluguel.getCliente().getNome().equals(nome)).findFirst().orElse(null);
-    }
-
-    @Override
     public List<Aluguel> buscarTodosAlugueis() {
         return aluguelDatabase.values().stream().toList();
     }
+
+
 }

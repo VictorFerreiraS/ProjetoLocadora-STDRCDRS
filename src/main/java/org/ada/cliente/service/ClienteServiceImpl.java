@@ -3,51 +3,47 @@ package org.ada.cliente.service;
 import org.ada.cliente.models.Cliente;
 import org.ada.cliente.repository.ClienteRepository;
 import org.ada.cliente.validations.ValidadorDeCliente;
-import org.ada.cliente.validations.exception.ClienteInvalidoException;
-
 
 public class ClienteServiceImpl extends ClienteService {
 
     private final ValidadorDeCliente validadorDeCliente = new ValidadorDeCliente(clienteRepository);
 
-
     public ClienteServiceImpl(ClienteRepository clienteRepository) {
         super(clienteRepository);
     }
+
     @Override
-    public Cliente criarCliente(Cliente cliente) {
+    public Cliente inserir(Cliente cliente) {
 //        try {
             validadorDeCliente.isClienteExistente(cliente.getDocumento());
             validadorDeCliente.documentoInvalido(cliente.getDocumento());
 //        } catch (ClienteInvalidoException e) {
 //            return null;
 //        }
-        return super.criarCliente(cliente);
+        return super.inserir(cliente);
     }
 
     @Override
-    public Cliente alterarCliente(Cliente cliente) {
-        validadorDeCliente.clienteInexistenteNoBD(cliente.getDocumento());
-        validadorDeCliente.documentoInvalido(cliente.getDocumento());
-        return super.alterarCliente(cliente);
+    public Cliente alterar(String uuid, Cliente cliente){
+        Cliente clienteExistente = buscaPorId(uuid);
+        clienteExistente.setNome(cliente.getNome());
+        clienteExistente.setDocumento(cliente.getDocumento());
+        clienteExistente.setTipoCliente(cliente.getTipoCliente());
+        validadorDeCliente.clienteInexistenteNoBD(buscaPorId(uuid).getDocumento());
+        validadorDeCliente.documentoInvalido(clienteExistente.getDocumento());
+        return super.alterar(uuid, clienteExistente);
     }
 
     @Override
-    public Cliente removerCliente(Cliente cliente) {
-        validadorDeCliente.clienteInexistenteNoBD(cliente.getDocumento());
-        return super.removerCliente(cliente);
-    }
-
-    @Override
-    public Cliente removerCliente(String id) {
+    public Cliente deletar(String id) {
         validadorDeCliente.idClienteInexistenteNoBD(id);
-        return super.removerCliente(id);
+        return super.deletar(id);
     }
 
     @Override
-    public Cliente buscarCliente(String id) {
-        validadorDeCliente.idClienteInexistenteNoBD(id);
-        return super.buscarCliente(id);
+    public Cliente buscaPorId(String uuid) {
+        validadorDeCliente.idClienteInexistenteNoBD(uuid);
+        return super.buscaPorId(uuid);
     }
 
 }

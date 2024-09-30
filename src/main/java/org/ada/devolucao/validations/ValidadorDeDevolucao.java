@@ -24,7 +24,7 @@ public class ValidadorDeDevolucao {
 
     public void checarSeNaoExiste(Devolucao devolucao) {
         List<Devolucao> listaDeDevolucoes = devolucaoRepository.buscarTodasDevolucoes();
-        if (!listaDeDevolucoes.contains(devolucao)) {
+        if (!listaDeDevolucoes.contains(devolucao) || devolucao == null) {
             throw new DevolucaoInvalidaException("Devolucao nao realizada");
         }
     }

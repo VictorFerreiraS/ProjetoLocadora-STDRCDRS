@@ -3,6 +3,7 @@ package org.ada.cliente.models;
 import org.ada.aluguel.models.Aluguel;
 
 public class ClientePessoaFisica extends Cliente{
+
     public ClientePessoaFisica(String nome, String documento) {
         super(nome, documento, TipoCliente.PESSOA_FISICA);
     }

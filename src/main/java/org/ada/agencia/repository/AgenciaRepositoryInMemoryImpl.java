@@ -4,44 +4,36 @@ import org.ada.agencia.models.Agencia;
 import org.ada.veiculo.models.Veiculo;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
 
     private final Map<String, Agencia> agenciaDatabase = new HashMap<>();
 
     @Override
-    public List<Agencia> procurarAgencia(String nomeAgencia) {
-        return agenciaDatabase.entrySet().stream()
-                .filter(entry -> entry.getKey().toLowerCase().contains(nomeAgencia.toLowerCase()))
-                .map(Map.Entry::getValue)
-                .collect(Collectors.toList());
-    }
-
-    public Collection<Agencia> buscarTodasAgencias() {
-        return agenciaDatabase.values();
+    public List<Agencia> buscarTodasAgencias() {
+        return agenciaDatabase.values().stream().toList();
     }
 
     @Override
     public String adicionarVeiculo(String nomeAgencia, Veiculo veiculo) {
-        agenciaDatabase.get(nomeAgencia).getListaDeVeiculos().add(veiculo);
+        buscarAgencia(nomeAgencia).getListaDeVeiculos().add(veiculo);
         return "veiculo adicionado com sucesso";
+    }
+
+    @Override
+    public Agencia buscarAgencia(String nomeAgencia) {
+        return agenciaDatabase.values().stream().filter(agencia -> agencia.getNome().equalsIgnoreCase(nomeAgencia)).findFirst().orElse(null);
     }
     
     @Override
     public Agencia inserir(Agencia agencia) {
-        agenciaDatabase.put(agencia.getNome(),agencia);
+        agenciaDatabase.put(agencia.getUuid(),agencia);
         return agencia;
     }
 
     @Override
-    public Agencia alterar(Agencia agencia) {
-        return agenciaDatabase.replace(agencia.getUuid(),agencia);
-    }
-
-    @Override
-    public Agencia deletar(Agencia agencia) {
-        return agenciaDatabase.remove(agencia.getUuid());
+    public Agencia alterar(String uuid, Agencia agencia) {
+        return agenciaDatabase.replace(uuid,agencia);
     }
 
     @Override
@@ -50,7 +42,7 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
     }
 
     @Override
-    public Agencia deletarPorId(String id) {
+    public Agencia deletar(String id) {
         return agenciaDatabase.remove(id);
     }
 }

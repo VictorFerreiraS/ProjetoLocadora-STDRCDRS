@@ -9,5 +9,4 @@ public interface ClienteRepository extends CrudRepository<Cliente, String> {
 
     List<Cliente> buscarTodosClientes();
 
-    Cliente buscarPorNome(String nome);
 }

@@ -8,6 +8,7 @@ import org.ada.veiculo.models.Veiculo;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Aluguel extends BaseModel implements ComprovanteGeneratable {
 
@@ -27,6 +28,7 @@ public class Aluguel extends BaseModel implements ComprovanteGeneratable {
     }
 
     public Aluguel(Cliente cliente, Veiculo veiculo, Agencia agenciaDeRetirada, Integer tempoLocacaoEmDias) {
+        super();
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.agenciaDeRetirada = agenciaDeRetirada;
@@ -82,7 +84,6 @@ public class Aluguel extends BaseModel implements ComprovanteGeneratable {
     public void setAgenciaDeDevolucao(Agencia agenciaDeDevolucao) {
         this.agenciaDeDevolucao = agenciaDeDevolucao;
     }
-
 
     public double calcularValorDiarias() {
         return veiculo.getValorDiaria() * tempoLocacaoEmDias;

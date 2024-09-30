@@ -5,25 +5,22 @@ import org.ada.veiculo.models.Veiculo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class VeiculoRepositoryInMemoryImpl implements VeiculoRepository {
     private final Map<String, Veiculo> veiculosDatabase = new HashMap<>();
 
     @Override
-    public Veiculo inserir(Veiculo obj) {
-        veiculosDatabase.put(obj.getUuid(), obj);
-        return obj;
+    public Veiculo inserir(Veiculo veiculo) {
+        veiculosDatabase.put(veiculo.getUuid(), veiculo);
+        return veiculo;
     }
 
     @Override
-    public Veiculo alterar(Veiculo obj) {
-        veiculosDatabase.put(obj.getUuid(), obj);
-        return obj;
-    }
-
-    @Override
-    public Veiculo deletar(Veiculo obj) {
-        return veiculosDatabase.remove(obj.getUuid());
+    public Veiculo alterar(String uuid, Veiculo veiculo) {
+        veiculosDatabase.put(uuid, veiculo);
+        return veiculo;
     }
 
     @Override
@@ -32,7 +29,7 @@ public class VeiculoRepositoryInMemoryImpl implements VeiculoRepository {
     }
 
     @Override
-    public Veiculo deletarPorId(String id) {
+    public Veiculo deletar(String id) {
         return veiculosDatabase.remove(id);
     }
 

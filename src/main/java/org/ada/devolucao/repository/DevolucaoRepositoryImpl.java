@@ -19,23 +19,18 @@ public class DevolucaoRepositoryImpl implements DevolucaoRepository {
     }
 
     @Override
-    public Devolucao alterar(Devolucao devolucao) {
-        return devolucaoDatabase.replace(devolucao.getUuid(),devolucao);
+    public Devolucao alterar(String uuid, Devolucao devolucao) {
+        return devolucaoDatabase.replace(uuid, devolucao);
     }
 
     @Override
-    public Devolucao deletar(Devolucao devolucao) {
-        return devolucaoDatabase.remove(devolucao.getUuid());
+    public Devolucao deletar(String id) {
+        return devolucaoDatabase.remove(id);
     }
 
     @Override
     public Devolucao buscaPorId(String id) {
         return devolucaoDatabase.get(id);
-    }
-
-    @Override
-    public Devolucao deletarPorId(String id) {
-        return devolucaoDatabase.remove(id);
     }
 
     @Override

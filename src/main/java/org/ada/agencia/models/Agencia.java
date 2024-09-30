@@ -2,6 +2,8 @@ package org.ada.agencia.models;
 
 import org.ada.basemodel.BaseModel;
 import org.ada.veiculo.models.Veiculo;
+
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -9,10 +11,10 @@ public class Agencia extends BaseModel {
 
     private String nome;
     private String endereco;
-    private Set<Veiculo> listaDeVeiculos;
+    private List<Veiculo> listaDeVeiculos;
 
-
-    public Agencia(String nome, String endereco, Set<Veiculo> listaDeVeiculos) {
+    public Agencia(String nome, String endereco, List<Veiculo> listaDeVeiculos) {
+        super();
         this.nome = nome;
         this.endereco = endereco;
         this.listaDeVeiculos = listaDeVeiculos;
@@ -26,7 +28,7 @@ public class Agencia extends BaseModel {
          return endereco;
      }
 
-    public Set<Veiculo> getListaDeVeiculos() {
+    public List<Veiculo> getListaDeVeiculos() {
         return listaDeVeiculos;
     }
 
@@ -42,4 +44,14 @@ public class Agencia extends BaseModel {
     public int hashCode() {
         return Objects.hash(nome, endereco);
     }
+
+    @Override
+    public String toString() {
+        return "Agencia{" +
+                "nome='" + nome + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", listaDeVeiculos=" + listaDeVeiculos +
+                '}';
+    }
 }
+

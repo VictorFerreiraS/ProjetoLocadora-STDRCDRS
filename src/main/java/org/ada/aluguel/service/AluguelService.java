@@ -4,6 +4,8 @@ import org.ada.aluguel.models.Aluguel;
 import org.ada.aluguel.repository.AluguelRepository;
 import org.ada.cliente.models.Cliente;
 
+import java.util.List;
+
 public abstract class AluguelService {
 
     protected final AluguelRepository aluguelRepository;
@@ -12,14 +14,23 @@ public abstract class AluguelService {
         this.aluguelRepository = aluguelRepository;
     }
 
-    public Aluguel criarAluguel(Aluguel aluguel) {
+    public Aluguel inserirAluguel(Aluguel aluguel) {
         return aluguelRepository.inserir(aluguel);
     }
-    public Aluguel buscarAluguel(Cliente cliente) {
+
+    public Aluguel buscarAluguelPorCliente(Cliente cliente) {
         return aluguelRepository.buscarAluguelPorCliente(cliente);
     }
 
-    public Aluguel atualizarAluguel(Aluguel aluguel) {
-        return aluguelRepository.alterar(aluguel);
+    public Aluguel buscaPorId(String uuid) {
+        return aluguelRepository.buscaPorId(uuid);
     }
+
+    public Aluguel alterarAluguel(String uuid, Aluguel aluguel) {
+        return aluguelRepository.alterar(uuid, aluguel);
+    }
+
+    public Aluguel deletarAluguel(String id){ return aluguelRepository.deletar(id);}
+
+    public List<Aluguel> buscarTodosAlugueis(){return aluguelRepository.buscarTodosAlugueis();}
 }

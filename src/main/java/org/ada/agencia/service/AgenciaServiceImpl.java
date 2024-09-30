@@ -6,6 +6,8 @@ import org.ada.agencia.repository.AgenciaRepositoryInMemoryImpl;
 import org.ada.agencia.validation.ValidadoresDeAgencia;
 import org.ada.veiculo.models.Veiculo;
 
+import java.util.Collection;
+
 public class AgenciaServiceImpl extends AgenciaService {
 
     private final ValidadoresDeAgencia validadoresDeAgencia;
@@ -21,29 +23,25 @@ public class AgenciaServiceImpl extends AgenciaService {
         return agenciaRepository.adicionarVeiculo(agencia.getNome(), veiculo);
     }
 
-
+    @Override
+    public Agencia buscarAgencia(String nomeAgencia) {
+        return agenciaRepository.buscarAgencia(nomeAgencia);
+    }
 
     @Override
     public Agencia criarAgencia(Agencia agencia) {
-        validadoresDeAgencia.checarSeAgenciaExiste(agencia.getNome());
+        validadoresDeAgencia.checarSeAgenciaExiste(agencia.getUuid());
         return super.criarAgencia(agencia);
     }
 
     @Override
-    public Agencia deletarAgencia(Agencia agencia) {
-        validadoresDeAgencia.checarSeAgenciaExiste(agencia.getNome());
-        return super.deletarAgencia(agencia);
+    public Agencia deletar(String uuid) {
+        return super.deletar(uuid);
     }
 
     @Override
-    public Agencia deletarAgencia(String id) {
+    public Agencia alterar(String uuid, Agencia agencia) {
         //logica
-        return super.deletarAgencia(id);
-    }
-
-    @Override
-    public Agencia alterarAgencia(Agencia agencia) {
-        //logica
-        return super.alterarAgencia(agencia);
+        return super.alterar(uuid, agencia);
     }
 }

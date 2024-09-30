@@ -31,11 +31,11 @@ public abstract class ComprovanteService<T extends ComprovanteGeneratable> {
         return comprovanteRepository.buscarTodosComprovantes();
     }
 
-    public Comprovante<T> atualizarComprovante(Comprovante<T> comprovante) {
-        return comprovanteRepository.alterar(comprovante);
+    public Comprovante<T> atualizarComprovante(String uuid, Comprovante<T> comprovante) {
+        return comprovanteRepository.alterar(uuid, comprovante);
     }
 
-    public Comprovante<T> deletarComprovante(Comprovante<T> comprovante) {
-        return comprovanteRepository.deletar(comprovante);
+    public Comprovante<T> deletarComprovante(String id) {
+        return comprovanteRepository.deletar(id);
     }
 }

@@ -20,13 +20,8 @@ public class ComprovanteRepositoryImpl<T extends ComprovanteGeneratable> impleme
     }
 
     @Override
-    public Comprovante<T> alterar(Comprovante<T> comprovante) {
-        return comprovanteDatabase.replace(comprovante.comprovanteId(), comprovante);
-    }
-
-    @Override
-    public Comprovante<T> deletar(Comprovante<T> comprovante) {
-        return comprovanteDatabase.remove(comprovante.comprovanteId());
+    public Comprovante<T> alterar(String uuid, Comprovante<T> comprovante) {
+        return comprovanteDatabase.replace(uuid, comprovante);
     }
 
     @Override
@@ -35,7 +30,7 @@ public class ComprovanteRepositoryImpl<T extends ComprovanteGeneratable> impleme
     }
 
     @Override
-    public Comprovante<T> deletarPorId(String id) {
+    public Comprovante<T> deletar(String id) {
         return comprovanteDatabase.remove(id);
     }
 

@@ -16,13 +16,8 @@ public class ClienteRepositoryInMemoryImpl implements ClienteRepository{
     }
 
     @Override
-    public Cliente alterar(Cliente cliente) {
-        return clienteDatabase.replace(cliente.getUuid(),cliente);
-    }
-
-    @Override
-    public Cliente deletar(Cliente cliente) {
-        return clienteDatabase.remove(cliente.getUuid());
+    public Cliente alterar(String uuid, Cliente cliente) {
+        return clienteDatabase.replace(uuid,cliente);
     }
 
     @Override
@@ -31,7 +26,7 @@ public class ClienteRepositoryInMemoryImpl implements ClienteRepository{
     }
 
     @Override
-    public Cliente deletarPorId(String id) {
+    public Cliente deletar(String id) {
         return clienteDatabase.remove(id);
     }
 
@@ -40,8 +35,4 @@ public class ClienteRepositoryInMemoryImpl implements ClienteRepository{
         return clienteDatabase.values().stream().toList();
     }
 
-    @Override
-    public Cliente buscarPorNome(String nome) {
-        return clienteDatabase.values().stream().filter(cliente -> cliente.getNome().equalsIgnoreCase(nome)).findFirst().orElse(null);
-    }
 }

@@ -5,11 +5,9 @@ public interface CrudRepository<T, I> {
 
     T inserir(T obj);
 
-    T alterar(T obj);
+    T alterar(I uuid, T obj);
 
-    T deletar(T obj);
+    T buscaPorId(I uuid);
 
-    T buscaPorId(I id);
-
-    T deletarPorId(I id);
+    T deletar(I id);
 }

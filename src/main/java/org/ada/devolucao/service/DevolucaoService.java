@@ -14,9 +14,11 @@ public interface DevolucaoService {
 
     Devolucao salvarDevolucao(Devolucao devolucao);
 
-    Devolucao atualizarDevolucao(Devolucao devolucao);
+    Devolucao atualizarDevolucao(String uuid, Devolucao devolucao);
 
     Devolucao buscarDevolucaoPorId(String id);
 
     List<Devolucao> buscarDevolucaoPorCliente(Cliente cliente);
+
+    List<Devolucao> buscarTodasDevolucoes();
 }
