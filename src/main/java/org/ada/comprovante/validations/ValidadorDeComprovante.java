@@ -17,14 +17,20 @@ public class ValidadorDeComprovante<T extends ComprovanteGeneratable> {
 
     public void checarSeExiste(Comprovante<T> comprovante) {
         List<Comprovante<T>> todosComprovantes = comprovanteRepository.buscarTodosComprovantes();
-        if (todosComprovantes.contains(comprovante)) {
+        boolean exists = todosComprovantes.stream()
+                .anyMatch(existingComprovante -> existingComprovante.comprovanteId().equals(comprovante.comprovanteId()));
+
+        if (exists) {
             throw new ComprovanteInvalidoException("Comprovante já existe.");
         }
     }
 
     public void checarSeNaoExiste(Comprovante<T> comprovante) {
         List<Comprovante<T>> todosComprovantes = comprovanteRepository.buscarTodosComprovantes();
-        if (!todosComprovantes.contains(comprovante)) {
+        boolean exists = todosComprovantes.stream()
+                .anyMatch(existingComprovante -> existingComprovante.comprovanteId().equals(comprovante.comprovanteId()));
+
+        if (!exists) {
             throw new ComprovanteInvalidoException("Comprovante não existe.");
         }
     }
