@@ -3,7 +3,6 @@ package org.ada.agencia.service;
 import org.ada.agencia.models.Agencia;
 
 import org.ada.agencia.repository.AgenciaRepository;
-import org.ada.agencia.repository.AgenciaRepositoryInMemoryImpl;
 import org.ada.veiculo.models.Veiculo;
 
 import java.util.Collection;
@@ -25,8 +24,6 @@ public abstract class AgenciaService{
         return agenciaRepository.buscarAgencia(nomeAgencia);
     }
 
-    public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){return agenciaRepository.adicionarVeiculo(agencia.getNome(), veiculo);}
-
     public Agencia deletar(String id) {
         return agenciaRepository.deletar(id);
     }
@@ -42,5 +39,25 @@ public abstract class AgenciaService{
     public Collection<Agencia> buscarTodasAgencias(){
         return agenciaRepository.buscarTodasAgencias();
     }
+
+    public List<Agencia> procurarAgenciaPorNome(String nomeAgencia){return agenciaRepository.procurarAgenciaPorNome(nomeAgencia);}
+
+    public List<Agencia> procurarAgenciaPorEndereco(String enderecoAgencia){return agenciaRepository.procurarAgenciaPorEndereco(enderecoAgencia);}
+
+    public String adicionarVeiculo(Agencia agencia, Veiculo veiculo){return agenciaRepository.adicionarVeiculo(agencia.getNome(), veiculo);}
+
+    public Veiculo editarVeiculo(Agencia agencia, String placaVeiculo, Veiculo veiculo) {
+        return null;
+    }
+
+    public Veiculo buscarVeiculoPorPlaca(Agencia agencia, String placaVeiculo){
+        return null;
+    }
+
+
+    public Veiculo deletarVeiculoPorPlaca(Agencia agencia, String placaVeiculo) {
+        return null;
+    }
+
 
 }

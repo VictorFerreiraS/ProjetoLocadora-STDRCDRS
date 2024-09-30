@@ -10,7 +10,6 @@ import org.ada.veiculo.models.TipoVeiculo;
 import org.ada.veiculo.models.Veiculo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public  class TestesAgencias {
 
@@ -25,9 +24,9 @@ public  class TestesAgencias {
         agenciaService.criarAgencia(agencia1);
         agenciaService.criarAgencia(agencia2);
 
-        agenciaService.adicionarVeiculo(agencia1, new Veiculo("FFF1212", "marca1", "modelo1", "2007", TipoVeiculo.CARRO));
         agenciaService.adicionarVeiculo(agencia1, new Veiculo("LKK7676", "marca2", "modelo2", "2007", TipoVeiculo.MOTO));
-        agenciaService.adicionarVeiculo(agencia2, new Veiculo("JJJ4321", "marca3", "modelo3", "2015", TipoVeiculo.MOTO));
+        agenciaService.adicionarVeiculo(agencia1, new Veiculo("JJJ4321", "marca3", "modelo3", "2015", TipoVeiculo.MOTO));
+        agenciaService.adicionarVeiculo(agencia2, new Veiculo("FFF1212", "marca1", "modelo1", "2007", TipoVeiculo.CARRO));
         agenciaService.adicionarVeiculo(agencia2, new Veiculo("AAA1111", "marca4", "modelo4", "2018", TipoVeiculo.CAMINHAO));
 
         System.out.println("BUSCAR TODAS AS AGENCIAS: ");
@@ -40,16 +39,33 @@ public  class TestesAgencias {
         agenciaService.alterar(agencia1.getUuid(), agencia1Nova);
 
         Agencia agenciaEncontradaPorId = agenciaService.buscaPorId(agencia1.getUuid());
-
         System.out.println("\nBUSCA AGENCIA ALTERADA POR ID: \n" + agenciaEncontradaPorId);
+
+        System.out.println("\n Buscar Agencia por parte do nome: agen");
+        agenciaService.procurarAgenciaPorNome("Agen").forEach(agencia -> System.out.println(agencia.toString()));
+
+        System.out.println("\n Buscar Agencia por parte do nome: ru");
+        agenciaService.procurarAgenciaPorEndereco("ru").forEach(agencia -> System.out.println(agencia.toString()));
 
         agenciaService.deletar(agencia1.getUuid());
         System.out.println("\n AGENCIAS APÓS DELETAR AGENCIA 1: ");
         buscarTodasAgencias();
 
+        System.out.println("\n Buscar veiculo por placa dentro de agencia: FF1212");
+        Veiculo veiculoFFF1212 = agenciaService.buscarVeiculoPorPlaca(agencia2, "fff1212");
+        System.out.println(veiculoFFF1212.toString());
 
+        System.out.println("\n Editar Veiculo dentro de agencia:");
+        Veiculo novoVeiculo = new Veiculo("QNV4B95", "honda", "civic", "1998", TipoVeiculo.CARRO);
+        agenciaService.editarVeiculo(agencia2, veiculoFFF1212.getPlaca(), novoVeiculo);
+        System.out.println(agenciaService.buscarVeiculoPorPlaca(agencia2, novoVeiculo.getPlaca()).toString());
 
+        System.out.println("\n Deletar Veiculo por placa:");
+        agenciaService.deletarVeiculoPorPlaca(agencia2, "AAA1111");
+        System.out.println(agenciaService.buscarAgencia("Agencia 2").toString());
 
+//        TODO:
+//        BUSCAR VEICULO POR NOME;
     }
 
     public static void buscarTodasAgencias(){
