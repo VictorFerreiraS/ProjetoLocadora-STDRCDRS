@@ -19,4 +19,6 @@ public interface DevolucaoService {
     Devolucao buscarDevolucaoPorId(String id);
 
     List<Devolucao> buscarDevolucaoPorCliente(Cliente cliente);
+
+    List<Devolucao> buscarTodasDevolucoes();
 }

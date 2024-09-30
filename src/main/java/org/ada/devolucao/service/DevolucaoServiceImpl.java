@@ -13,10 +13,11 @@ public class DevolucaoServiceImpl implements DevolucaoService {
 
     private DevolucaoRepository devolucaoRepository;
 
-    private ValidadorDeDevolucao validadorDeDevolucao = new ValidadorDeDevolucao(devolucaoRepository);
+    private ValidadorDeDevolucao validadorDeDevolucao;
 
-    public DevolucaoServiceImpl(DevolucaoRepository devolucaoRepository) {
+    public DevolucaoServiceImpl(DevolucaoRepository devolucaoRepository, ValidadorDeDevolucao validadorDeDevolucao) {
         this.devolucaoRepository = devolucaoRepository;
+        this.validadorDeDevolucao = validadorDeDevolucao;
     }
 
 
@@ -49,6 +50,11 @@ public class DevolucaoServiceImpl implements DevolucaoService {
     public List<Devolucao> buscarDevolucaoPorCliente(Cliente cliente) {
         validadorDeDevolucao.checarSeNaoExiste(cliente);
         return devolucaoRepository.buscarTodasDevolucoesDoCliente(cliente);
+    }
+
+    @Override
+    public List<Devolucao> buscarTodasDevolucoes() {
+        return devolucaoRepository.buscarTodasDevolucoes();
     }
 
 }
