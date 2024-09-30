@@ -85,12 +85,10 @@ public class Veiculo extends BaseModel {
 
     @Override
     public String toString() {
-        return "Veiculo{" +
-                "placa='" + placa + '\'' +
-                ", marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", ano='" + ano + '\'' +
-                ", tipoVeiculo=" + tipoVeiculo +
-                '}';
+        return "Placa= " + placa +
+                ", Marca= " + marca +
+                ", Modelo= " + modelo +
+                ", Ano= " + ano +
+                ", tipo= " + tipoVeiculo;
     }
 }
