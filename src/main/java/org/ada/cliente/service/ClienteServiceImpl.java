@@ -25,9 +25,13 @@ public class ClienteServiceImpl extends ClienteService {
 
     @Override
     public Cliente alterar(String uuid, Cliente cliente){
-        validadorDeCliente.clienteInexistenteNoBD(cliente.getDocumento());
-        validadorDeCliente.documentoInvalido(cliente.getDocumento());
-        return super.alterar(uuid, cliente);
+        Cliente clienteExistente = buscaPorId(uuid);
+        clienteExistente.setNome(cliente.getNome());
+        clienteExistente.setDocumento(cliente.getDocumento());
+        clienteExistente.setTipoCliente(cliente.getTipoCliente());
+        validadorDeCliente.clienteInexistenteNoBD(buscaPorId(uuid).getDocumento());
+        validadorDeCliente.documentoInvalido(clienteExistente.getDocumento());
+        return super.alterar(uuid, clienteExistente);
     }
 
     @Override
@@ -37,9 +41,9 @@ public class ClienteServiceImpl extends ClienteService {
     }
 
     @Override
-    public Cliente buscaPorId(String id) {
-        validadorDeCliente.idClienteInexistenteNoBD(id);
-        return super.buscaPorId(id);
+    public Cliente buscaPorId(String uuid) {
+        validadorDeCliente.idClienteInexistenteNoBD(uuid);
+        return super.buscaPorId(uuid);
     }
 
 }

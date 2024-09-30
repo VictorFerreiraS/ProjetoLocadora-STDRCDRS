@@ -60,4 +60,13 @@ public abstract class Cliente extends BaseModel {
     public int hashCode() {
         return Objects.hashCode(documento);
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", documento='" + documento + '\'' +
+                ", tipoCliente=" + tipoCliente +
+                '}';
+    }
 }
