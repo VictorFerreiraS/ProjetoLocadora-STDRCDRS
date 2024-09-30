@@ -2,11 +2,12 @@ package org.ada.devolucao.models;
 
 import org.ada.aluguel.models.Aluguel;
 import org.ada.basemodel.BaseModel;
+import org.ada.comprovante.models.ComprovanteGeneratable;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Devolucao extends BaseModel {
+public class Devolucao extends BaseModel implements ComprovanteGeneratable {
 
     private Aluguel aluguel;
 

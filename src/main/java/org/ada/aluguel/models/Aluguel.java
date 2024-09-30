@@ -3,12 +3,13 @@ package org.ada.aluguel.models;
 import org.ada.agencia.models.Agencia;
 import org.ada.basemodel.BaseModel;
 import org.ada.cliente.models.Cliente;
+import org.ada.comprovante.models.ComprovanteGeneratable;
 import org.ada.veiculo.models.Veiculo;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Aluguel extends BaseModel {
+public class Aluguel extends BaseModel implements ComprovanteGeneratable {
 
     private Cliente cliente;
 
