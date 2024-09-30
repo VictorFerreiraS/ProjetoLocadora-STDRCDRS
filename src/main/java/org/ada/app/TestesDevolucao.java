@@ -27,7 +27,6 @@ import org.ada.devolucao.validations.ValidadorDeDevolucao;
 import org.ada.veiculo.models.TipoVeiculo;
 import org.ada.veiculo.models.Veiculo;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class TestesDevolucao {
@@ -36,8 +35,8 @@ public class TestesDevolucao {
 
     static ValidadorDeDevolucao validadorDeDevolucao = new ValidadorDeDevolucao(devolucaoRepository);
 
-    static DevolucaoCreateService devolucaoCreatorPF = new DevolucaoServicePF();
-    static DevolucaoCreateService devolucaoCreatorPJ = new DevolucaoServicePJ();
+    static DevolucaoCreateService devolucaoCreatorPF = new DevolucaoCreatorServicePF();
+    static DevolucaoCreateService devolucaoCreatorPJ = new DevolucaoCreatorServicePJ();
 
     static DevolucaoService devolucaoService = new DevolucaoServiceImpl(devolucaoRepository,validadorDeDevolucao);
     static AgenciaRepository agenciaRepository = new AgenciaRepositoryInMemoryImpl();

@@ -3,12 +3,12 @@ package org.ada.devolucao.service;
 import org.ada.aluguel.models.Aluguel;
 import org.ada.devolucao.models.Devolucao;
 
-public class DevolucaoServicePJ implements DevolucaoCreateService {
+public class DevolucaoCreatorServicePF implements DevolucaoCreateService {
 
-    private static final Double DESCONTO = 0.1;
-    private static final Integer DIAS_PARA_DESCONTO = 3;
+    private static final Double DESCONTO = 0.05;
+    private static final Integer DIAS_PARA_DESCONTO = 5;
 
-    private static final Double TAXA_DESLOCAMENTO = 0.05;
+    private static final Double TAXA_DESLOCAMENTO = 0.1;
     @Override
     public Devolucao devolver(Aluguel aluguel) {
         Double desconto = calcularDesconto(aluguel);
