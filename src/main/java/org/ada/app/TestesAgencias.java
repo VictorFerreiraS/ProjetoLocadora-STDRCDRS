@@ -44,8 +44,8 @@ public  class TestesAgencias {
         System.out.println("\n Buscar Agencia por parte do nome: agen");
         agenciaService.procurarAgenciaPorNome("Agen").forEach(agencia -> System.out.println(agencia.toString()));
 
-        System.out.println("\n Buscar Agencia por parte do nome da rua: ru");
-        agenciaService.procurarAgenciaPorEndereco("ru").forEach(agencia -> System.out.println(agencia.toString()));
+        System.out.println("\n Buscar Agencia por parte do nome da rua: rua");
+        agenciaService.procurarAgenciaPorEndereco("rua").forEach(agencia -> System.out.println(agencia.toString()));
 
         agenciaService.deletar(agencia1.getUuid());
         System.out.println("\n AGENCIAS APÓS DELETAR AGENCIA 1: ");
