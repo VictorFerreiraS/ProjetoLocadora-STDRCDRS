@@ -64,8 +64,9 @@ public  class TestesAgencias {
         agenciaService.deletarVeiculoPorPlaca(agencia2, "AAA1111");
         System.out.println(agenciaService.buscarAgencia("Agencia 2").toString());
 
-//        TODO:
-//        BUSCAR VEICULO POR NOME;
+        System.out.println("\n Buscar veiculo por nome:");
+        agenciaService.procurarVeiculoPorModelo(agencia2, "civ").forEach(veiculo -> System.out.println(veiculo.toString()));
+
     }
 
     public static void buscarTodasAgencias(){

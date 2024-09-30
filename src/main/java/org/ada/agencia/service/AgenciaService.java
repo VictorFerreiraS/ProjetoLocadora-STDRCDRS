@@ -59,5 +59,7 @@ public abstract class AgenciaService{
         return null;
     }
 
+    public List<Veiculo> procurarVeiculoPorModelo(Agencia agencia, String modelo) {return null;}
+
 
 }

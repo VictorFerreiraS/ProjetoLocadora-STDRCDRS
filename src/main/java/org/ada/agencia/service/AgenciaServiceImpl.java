@@ -5,6 +5,9 @@ import org.ada.agencia.repository.AgenciaRepository;
 import org.ada.agencia.validation.ValidadoresDeAgencia;
 import org.ada.veiculo.models.Veiculo;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class AgenciaServiceImpl extends AgenciaService {
 
     private final ValidadoresDeAgencia validadoresDeAgencia;
@@ -24,6 +27,17 @@ public class AgenciaServiceImpl extends AgenciaService {
     @Override
     public Agencia buscarAgencia(String nomeAgencia) {
         return agenciaRepository.buscarAgencia(nomeAgencia);
+    }
+
+    @Override
+    public Agencia deletar(String uuid) {
+        return super.deletar(uuid);
+    }
+
+    @Override
+    public Agencia alterar(String uuid, Agencia agencia) {
+        //logica
+        return super.alterar(uuid, agencia);
     }
 
     @Override
@@ -61,13 +75,14 @@ public class AgenciaServiceImpl extends AgenciaService {
     }
 
     @Override
-    public Agencia deletar(String uuid) {
-        return super.deletar(uuid);
-    }
+    public List<Veiculo> procurarVeiculoPorModelo(Agencia agencia, String modelo) {
+            List<Veiculo> modelosEncontrados = agencia.getListaDeVeiculos().stream()
+                    .filter(veiculo -> veiculo.getModelo().toLowerCase().contains(modelo.toLowerCase().trim()))
+                    .collect(Collectors.toList());
+            if (modelosEncontrados.isEmpty()) {
+                throw new IllegalArgumentException("No agencies found with the given name: " + modelo);
+            }
 
-    @Override
-    public Agencia alterar(String uuid, Agencia agencia) {
-        //logica
-        return super.alterar(uuid, agencia);
-    }
+            return modelosEncontrados;
+        }
 }
