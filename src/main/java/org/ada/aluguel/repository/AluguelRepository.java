@@ -11,4 +11,5 @@ public interface AluguelRepository extends CrudRepository<Aluguel, String> {
     Aluguel buscarAluguelPorCliente(Cliente cliente);
 
     List<Aluguel> buscarTodosAlugueis();
+
 }
