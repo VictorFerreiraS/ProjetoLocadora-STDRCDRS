@@ -73,7 +73,7 @@ public class Testes {
         clienteService.criarCliente(cliente1);
 
         Veiculo veiculo1 = new Veiculo("1234ABCD","sla","nsei","2024", TipoVeiculo.CARRO);
-        veiculoService.salvarVeiculo(veiculo1);
+        veiculoService.inserir(veiculo1);
 
         agenciaService.adicionarVeiculo(agencia1,veiculo1);
 

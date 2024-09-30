@@ -12,17 +12,20 @@ public abstract class VeiculoService {
         this.veiculoRepository = veiculoRepository;
     }
 
-    public Veiculo salvarVeiculo(Veiculo veiculo) {
+    public Veiculo inserir(Veiculo veiculo) {
         return veiculoRepository.inserir(veiculo);
     }
 
-    public Veiculo alterarVeiculo(Veiculo veiculo) {
+    public Veiculo alterar(Veiculo veiculo) {
         return veiculoRepository.alterar(veiculo);
     }
 
-    public Veiculo deletarVeiculo(String id) {
+    public Veiculo buscaPorId(String id){ return veiculoRepository.buscaPorId(id); }
+
+    public Veiculo deletar(String id) {
         return veiculoRepository.deletar(id);
     }
+
     public Veiculo buscarVeiculo(String placa) {
         return veiculoRepository.buscarVeiculoPorPlaca(placa);
     }

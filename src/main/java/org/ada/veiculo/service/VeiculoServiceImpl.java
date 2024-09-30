@@ -11,21 +11,26 @@ public class VeiculoServiceImpl extends VeiculoService {
     }
 
     @Override
-    public Veiculo salvarVeiculo(Veiculo veiculo) {
+    public Veiculo inserir(Veiculo veiculo) {
         //logica
-        return super.salvarVeiculo(veiculo);
+        return super.inserir(veiculo);
     }
 
     @Override
-    public Veiculo alterarVeiculo(Veiculo veiculo) {
+    public Veiculo alterar(Veiculo veiculo) {
         //logica
-        return super.alterarVeiculo(veiculo);
+        return super.alterar(veiculo);
     }
 
     @Override
-    public Veiculo deletarVeiculo(String id) {
+    public Veiculo buscaPorId(String id){
+        return super.buscaPorId(id);
+    }
+
+    @Override
+    public Veiculo deletar(String id) {
         //logica
-        return super.deletarVeiculo(id);
+        return super.deletar(id);
     }
 
     @Override

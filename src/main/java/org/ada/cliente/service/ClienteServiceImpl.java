@@ -3,7 +3,6 @@ package org.ada.cliente.service;
 import org.ada.cliente.models.Cliente;
 import org.ada.cliente.repository.ClienteRepository;
 import org.ada.cliente.validations.ValidadorDeCliente;
-import org.ada.cliente.validations.exception.ClienteInvalidoException;
 
 public class ClienteServiceImpl extends ClienteService {
 
@@ -14,33 +13,33 @@ public class ClienteServiceImpl extends ClienteService {
     }
 
     @Override
-    public Cliente criarCliente(Cliente cliente) {
+    public Cliente inserir(Cliente cliente) {
 //        try {
             validadorDeCliente.isClienteExistente(cliente.getDocumento());
             validadorDeCliente.documentoInvalido(cliente.getDocumento());
 //        } catch (ClienteInvalidoException e) {
 //            return null;
 //        }
-        return super.criarCliente(cliente);
+        return super.inserir(cliente);
     }
 
     @Override
-    public Cliente alterarCliente(Cliente cliente) {
+    public Cliente alterar(Cliente cliente){
         validadorDeCliente.clienteInexistenteNoBD(cliente.getDocumento());
         validadorDeCliente.documentoInvalido(cliente.getDocumento());
-        return super.alterarCliente(cliente);
+        return super.alterar(cliente);
     }
 
     @Override
-    public Cliente removerCliente(String id) {
+    public Cliente deletar(String id) {
         validadorDeCliente.idClienteInexistenteNoBD(id);
-        return super.removerCliente(id);
+        return super.deletar(id);
     }
 
     @Override
-    public Cliente buscarCliente(String id) {
+    public Cliente buscaPorId(String id) {
         validadorDeCliente.idClienteInexistenteNoBD(id);
-        return super.buscarCliente(id);
+        return super.buscaPorId(id);
     }
 
 }

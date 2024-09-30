@@ -2,7 +2,6 @@ package org.ada.cliente.service;
 
 import org.ada.cliente.models.Cliente;
 import org.ada.cliente.repository.ClienteRepository;
-import org.ada.cliente.validations.ValidadorDeCliente;
 
 public abstract class ClienteService {
 
@@ -12,18 +11,19 @@ public abstract class ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
-    public Cliente criarCliente(Cliente cliente) {
+    public Cliente inserir(Cliente cliente) {
        return clienteRepository.inserir(cliente);
     }
-    public Cliente alterarCliente(Cliente cliente) {
+
+    public Cliente alterar(Cliente cliente) {
         return clienteRepository.alterar(cliente);
     }
 
-    public Cliente removerCliente(String id) {
+    public Cliente deletar(String id) {
         return clienteRepository.deletar(id);
     }
 
-    public Cliente buscarCliente(String id) {
+    public Cliente buscaPorId(String id) {
         return clienteRepository.buscaPorId(id);
     }
 
