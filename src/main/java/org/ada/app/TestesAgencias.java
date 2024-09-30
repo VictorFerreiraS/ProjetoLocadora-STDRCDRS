@@ -39,8 +39,13 @@ public  class TestesAgencias {
         agenciaService.alterar(agencia1.getUuid(), agencia1Nova);
 
         Agencia agenciaEncontradaPorId = agenciaService.buscaPorId(agencia1.getUuid());
-
         System.out.println("\nBUSCA AGENCIA ALTERADA POR ID: \n" + agenciaEncontradaPorId);
+
+        System.out.println("\n Buscar Agencia por parte do nome: agen");
+        agenciaService.procurarAgenciaPorNome("Agen").forEach(agencia -> System.out.println(agencia.toString()));
+
+        System.out.println("\n Buscar Agencia por parte do nome: ru");
+        agenciaService.procurarAgenciaPorEndereco("ru").forEach(agencia -> System.out.println(agencia.toString()));
 
         agenciaService.deletar(agencia1.getUuid());
         System.out.println("\n AGENCIAS APÓS DELETAR AGENCIA 1: ");
@@ -55,10 +60,12 @@ public  class TestesAgencias {
         agenciaService.editarVeiculo(agencia2, veiculoFFF1212.getPlaca(), novoVeiculo);
         System.out.println(agenciaService.buscarVeiculoPorPlaca(agencia2, novoVeiculo.getPlaca()).toString());
 
-        System.out.println("Deletar Veiculo por placa:");
+        System.out.println("\n Deletar Veiculo por placa:");
         agenciaService.deletarVeiculoPorPlaca(agencia2, "AAA1111");
         System.out.println(agenciaService.buscarAgencia("Agencia 2").toString());
 
+//        TODO:
+//        BUSCAR VEICULO POR NOME;
     }
 
     public static void buscarTodasAgencias(){

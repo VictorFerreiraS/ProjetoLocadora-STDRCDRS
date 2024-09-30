@@ -36,6 +36,7 @@ public class AgenciaServiceImpl extends AgenciaService {
         throw new IllegalArgumentException("Veiculo não exste");
     }
 
+
     @Override
     public Veiculo deletarVeiculoPorPlaca(Agencia agencia, String placaVeiculo) {
         Veiculo veiculo = buscarVeiculoPorPlaca(agencia, placaVeiculo);

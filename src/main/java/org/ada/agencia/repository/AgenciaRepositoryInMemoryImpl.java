@@ -4,6 +4,7 @@ import org.ada.agencia.models.Agencia;
 import org.ada.veiculo.models.Veiculo;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
 
@@ -45,4 +46,31 @@ public class AgenciaRepositoryInMemoryImpl implements AgenciaRepository {
     public Agencia deletar(String id) {
         return agenciaDatabase.remove(id);
     }
+
+    @Override
+    public List<Agencia> procurarAgenciaPorNome(String nomeAgencia) {
+        List<Agencia> agenciasEncontradas = agenciaDatabase.values().stream()
+                .filter(agencia -> agencia.getNome().toLowerCase().contains(nomeAgencia.toLowerCase().trim()))
+                .collect(Collectors.toList());
+        if (agenciasEncontradas.isEmpty()) {
+            throw new IllegalArgumentException("No agencies found with the given name: " + nomeAgencia);
+        }
+
+        return agenciasEncontradas;
+    }
+
+    @Override
+    public List<Agencia> procurarAgenciaPorEndereco(String enderecoAgencia) {
+        List<Agencia> agenciasEncontradas = agenciaDatabase.values().stream()
+                .filter(agencia -> agencia.getEndereco().toLowerCase().contains(enderecoAgencia.toLowerCase().trim()))
+                .collect(Collectors.toList());
+        if (agenciasEncontradas.isEmpty()) {
+            throw new IllegalArgumentException("No agencies found with the given adress: " + enderecoAgencia);
+        }
+
+        return agenciasEncontradas;
+    }
+
+
+
 }
