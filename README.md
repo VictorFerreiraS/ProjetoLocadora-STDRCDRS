@@ -1,16 +1,16 @@
 # PROJETO LOCADORA
 
 ## BaseModel
-![1.drawio-1.png](uml/1.drawio-1.png)
+![Basemodel.drawio.png](uml/Basemodel.drawio.png)
 ## CrudRepository -> Agencia
-![2.drawio-1.png](uml/2.drawio-1.png)
+![Agencia.drawio.png](uml/Agencia.drawio.png)
 ## CrudRepository -> Client
-![3.drawio-1.png](uml/3.drawio-1.png)
+![Cliente.drawio.png](uml/Cliente.drawio.png)
 ## CrudRepository -> Aluguel
-![4.drawio-1.png](uml/4.drawio-1.png)
+![Aluguel.drawio.png](uml/Aluguel.drawio.png)
 ## CrudRepository -> Veículo
-![5.drawio-1.png](uml/5.drawio-1.png)
+![Veiculo.drawio.png](uml/Veiculo.drawio.png)
 ## CrudRepository -> Devolução
-![6.drawio-1.png](uml/6.drawio-1.png)
+![Devolucao.drawio.png](uml/Devolucao.drawio.png)
 ## CrudRepository -> Comprovante
-![7.drawio-1.png](uml/7.drawio-1.png)
+![Comprovante.drawio.png](uml/Comprovante.drawio.png)
